@@ -4,8 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Especialista em transformar negócios em máquinas de vendas usando marketing, automação e inteligência artificial.">
-  <meta property="og:title" content="Anderson Seabra | Especialista em Crescimento Digital">
-  <meta property="og:description" content="Marketing + Automação + IA. Estratégia, tecnologia e execução para crescimento previsível.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0B0B0B">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" href="/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://anderson-seabra-site.vercel.app">
+  <meta property="og:title"       content="Anderson Seabra | Especialista em Crescimento Digital">
+  <meta property="og:description" content="Marketing + Automação + IA. Estratégia, tecnologia e execução para crescimento previsível. Não apenas consulto — estruturo, implemento e escalo.">
+  <meta property="og:image"       content="https://anderson-seabra-site.vercel.app/public/foto%20inicial.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:alt"   content="Anderson Seabra — Especialista em Marketing Digital, Automação e IA">
+  <meta property="og:locale"      content="pt_BR">
+  <meta property="og:site_name"   content="Anderson Seabra">
+
+  <!-- Twitter / WhatsApp fallback -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Anderson Seabra | Especialista em Crescimento Digital">
+  <meta name="twitter:description" content="Marketing + Automação + IA. Estratégia, tecnologia e execução para crescimento previsível.">
+  <meta name="twitter:image"       content="https://anderson-seabra-site.vercel.app/public/foto%20inicial.jpg">
+
   <title>Anderson Seabra | Especialista em Crescimento Digital</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1378,6 +1400,61 @@
       .scroll-hint { display: none; }
     }
 
+    /* ─── LGPD BANNER ─────────────────────────────── */
+    .lgpd-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: rgba(10,10,10,0.97);
+      border-top: 1px solid rgba(0,255,135,0.2);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 18px 24px;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .lgpd-bar.show { transform: translateY(0); }
+    .lgpd-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .lgpd-bar p {
+      flex: 1;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      margin: 0;
+      min-width: 260px;
+    }
+    .lgpd-bar p a { color: var(--green); text-decoration: underline; }
+    .lgpd-btns { display: flex; gap: 10px; flex-shrink: 0; }
+    .lgpd-ok {
+      padding: 9px 22px;
+      background: var(--grad);
+      border: none; border-radius: 8px;
+      color: #0B0B0B;
+      font-family: var(--font-h); font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: opacity 0.2s;
+    }
+    .lgpd-ok:hover { opacity: 0.85; }
+    .lgpd-no {
+      padding: 9px 18px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 13px; cursor: pointer; transition: border-color 0.2s;
+    }
+    .lgpd-no:hover { border-color: rgba(255,255,255,0.35); }
+    @media (max-width: 600px) {
+      .lgpd-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .lgpd-btns { width: 100%; }
+      .lgpd-ok, .lgpd-no { flex: 1; text-align: center; }
+    }
+
     /* ── Phones pequenos (≤390px) ── */
     @media (max-width: 390px) {
       .hero-title { font-size: 30px; }
@@ -2212,6 +2289,17 @@
   </div>
 </footer>
 
+<!-- LGPD Banner -->
+<div class="lgpd-bar" id="lgpdBar">
+  <div class="lgpd-inner">
+    <p>🍪 Este site utiliza cookies para melhorar sua experiência de navegação. Ao continuar, você concorda com o uso de cookies em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong>.</p>
+    <div class="lgpd-btns">
+      <button class="lgpd-ok" onclick="lgpdAccept()">Aceitar todos</button>
+      <button class="lgpd-no" onclick="lgpdDecline()">Recusar</button>
+    </div>
+  </div>
+</div>
+
 <!-- WhatsApp Float -->
 <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="wa-float" title="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -2509,6 +2597,21 @@ function shakeInput(id) {
 
   setTimeout(showNext, 2200);
 })();
+
+// ─── LGPD ───────────────────────────────────────
+(function () {
+  if (localStorage.getItem('lgpd')) return;
+  const bar = document.getElementById('lgpdBar');
+  setTimeout(() => bar.classList.add('show'), 1200);
+})();
+function lgpdAccept() {
+  localStorage.setItem('lgpd', 'accepted');
+  document.getElementById('lgpdBar').classList.remove('show');
+}
+function lgpdDecline() {
+  localStorage.setItem('lgpd', 'declined');
+  document.getElementById('lgpdBar').classList.remove('show');
+}
 
 // ─── RIPPLE ─────────────────────────────────────
 document.addEventListener('click', e => {
