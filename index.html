@@ -1017,6 +1017,28 @@
     .ch-info p  { font-size: 12px; color: var(--muted); }
     .ch-arr     { margin-left: auto; color: var(--subtle); font-size: 18px; }
 
+    /* Grid de ofertas unificado */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .offer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: var(--t);
+    }
+    .offer-card:hover { border-color: var(--border-g); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .offer-card h3 { font-family: var(--font-h); font-size: 20px; font-weight: 700; }
+    .offer-card p  { font-size: 14px; color: var(--muted); line-height: 1.65; flex: 1; }
+    .offer-cta { display: inline-flex; padding: 11px 22px; font-size: 13px; margin-top: 4px; width: fit-content; }
+    @media (max-width: 600px) { .offer-grid { grid-template-columns: 1fr; } }
+
     /* Form */
     .form-wrap { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 36px; }
     .form-title { font-family: var(--font-h); font-size: 20px; font-weight: 700; margin-bottom: 24px; }
@@ -1483,7 +1505,6 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#mentorias">Mentorias</a></li>
         <li><a href="#resultados">Resultados</a></li>
         <li><a href="#contato" class="nav-cta">Falar Agora</a></li>
       </ul>
@@ -1571,32 +1592,6 @@
 </section>
 
 <!-- =============================================
-     STATS BAR
-============================================= -->
-<div class="stats-bar">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-n" data-target="5" data-suffix="+">0</div>
-        <div class="stat-l">Anos de experiência</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n" data-target="150" data-suffix="+">0</div>
-        <div class="stat-l">Projetos entregues</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n" data-target="3" data-suffix="M+">0</div>
-        <div class="stat-l">Em tráfego gerenciado</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n" data-target="98" data-suffix="%">0</div>
-        <div class="stat-l">Taxa de satisfação</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- =============================================
      SOBRE
 ============================================= -->
 <section id="sobre">
@@ -1621,147 +1616,60 @@
 
   <div class="container">
     <div class="sobre-inner">
-
-      <!-- Foto circular no topo -->
-      <div class="sobre-profile rv">
-        <div class="sobre-profile-frame">
-          <img src="public/foto inicial.jpg" alt="Anderson Seabra" class="sobre-profile-img">
-        </div>
-        <div class="sobre-profile-name">Anderson Seabra</div>
-        <div class="sobre-profile-role">Especialista em Crescimento Digital</div>
-      </div>
-
-      <!-- Todo o texto centralizado -->
       <div>
         <div class="sobre-tag">Sobre mim</div>
-        <h2 class="sec-title rv">Anderson Seabra —<br><span class="tg">quem está por trás</span></h2>
+        <h2 class="sec-title rv">Mais de 5 anos<br><span class="tg">gerando resultados reais</span></h2>
 
         <p class="sobre-lead rv d1">
-          Mais de 5 anos ajudando empresas, profissionais e iniciantes a vender mais no digital — com estratégia real, tecnologia e execução junto com você.
+          Ajudo empresas, profissionais e iniciantes a vender mais no digital — com estratégia real, tecnologia e execução junto com você. Não apenas consulto: estruturo, implemento e escalo.
         </p>
 
-        <div class="sobre-skills rv d2">
-          <div class="sobre-skill">
-            <div class="sk-dot"></div>
-            <div class="sk-text"><strong>Tráfego pago e funis</strong> — campanhas que vendem desde o primeiro dia</div>
-          </div>
-          <div class="sobre-skill">
-            <div class="sk-dot"></div>
-            <div class="sk-text"><strong>Automação com IA</strong> — sistemas que qualificam e vendem 24h</div>
-          </div>
-          <div class="sobre-skill">
-            <div class="sk-dot"></div>
-            <div class="sk-text"><strong>Sites e landing pages</strong> — infraestrutura digital de alta conversão</div>
-          </div>
-        </div>
-
-        <div class="sobre-quote rv d3">
-          <p>"Não apenas consulto — estruturo, implemento e escalo junto com você."</p>
+        <div class="sobre-quote rv d2">
+          <p>"Cada projeto é tratado como se fosse o meu próprio negócio."</p>
           <span>— Anderson Seabra</span>
         </div>
       </div>
-
-
     </div>
   </div>
 </section>
 
 <!-- =============================================
-     SERVICES
+     SERVIÇOS + MENTORIAS (unificado)
 ============================================= -->
 <section id="servicos">
   <div class="container">
-    <div style="margin-bottom:56px">
-      <div class="label">O que eu faço</div>
-      <h2 class="sec-title rv">Serviços que geram<br><span class="tg">crescimento real</span></h2>
-      <p class="sec-desc rv d1">Execução real, do primeiro clique ao resultado mensurável.</p>
+    <div style="margin-bottom:52px;text-align:center">
+      <div class="label">Como posso te ajudar</div>
+      <h2 class="sec-title rv">Escolha o que faz<br><span class="tg">sentido para você agora</span></h2>
     </div>
 
-    <div class="svc-grid">
-      <div class="svc-card rv d1">
+    <div class="offer-grid">
+      <div class="offer-card rv d1">
         <div class="svc-icon g">🚀</div>
-        <div class="svc-tag g">Marketing & Vendas</div>
-        <h3 class="svc-title">Tráfego Pago e Funis de Alta Conversão</h3>
-        <p class="svc-desc">Campanhas que vendem. Da criação do criativo à escala das que funcionam.</p>
-        <ul class="svc-list">
-          <li>Gestão de Meta Ads (Facebook & Instagram)</li>
-          <li>Criativos e funis de vendas otimizados</li>
-          <li>Escala de campanhas lucrativas</li>
-        </ul>
+        <h3>Tráfego Pago</h3>
+        <p>Campanhas no Meta Ads que vendem desde o primeiro dia — criativos, funil e escala.</p>
+        <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-s offer-cta">Quero saber mais →</a>
       </div>
 
-      <div class="svc-card rv d2">
+      <div class="offer-card rv d2">
         <div class="svc-icon b">🤖</div>
-        <div class="svc-tag b">Automação & IA</div>
-        <h3 class="svc-title">Sistemas que Vendem no Automático</h3>
-        <p class="svc-desc">Atendimento, qualificação e vendas no automático — 24h por dia.</p>
-        <ul class="svc-list">
-          <li>Automação via API do WhatsApp com IA</li>
-          <li>Funis automatizados de atendimento</li>
-          <li>CRM e gestão automática de leads</li>
-        </ul>
+        <h3>Automação com IA</h3>
+        <p>WhatsApp, chatbot e funis automáticos. Seu negócio atendendo e vendendo 24h.</p>
+        <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-s offer-cta">Quero saber mais →</a>
       </div>
 
-      <div class="svc-card rv d3">
+      <div class="offer-card rv d3">
         <div class="svc-icon c">💻</div>
-        <div class="svc-tag c">Tecnologia & Desenvolvimento</div>
-        <h3 class="svc-title">Sites e Landing Pages que Convertem</h3>
-        <p class="svc-desc">Infraestrutura digital que transforma visitantes em clientes pagantes.</p>
-        <ul class="svc-list">
-          <li>Sites profissionais e landing pages</li>
-          <li>Sistemas web e integrações com APIs</li>
-          <li>Performance, hospedagem e SEO técnico</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- =============================================
-     MENTORING
-============================================= -->
-<section id="mentorias">
-  <div class="container">
-    <div class="label">Mentorias & Consultorias</div>
-    <h2 class="sec-title rv">Para cada momento,<br><span class="tg">um caminho específico</span></h2>
-    <p class="sec-desc rv d1">Escolha o programa ideal para onde você está agora.</p>
-
-    <div class="ment-grid">
-      <div class="ment-card rv d1">
-        <div class="ment-aud">Para iniciantes</div>
-        <h3 class="ment-title">Renda Extra &amp; Entrada no Digital</h3>
-        <p class="ment-desc">Do zero ao primeiro resultado no digital, passo a passo.</p>
-        <ul class="ment-list">
-          <li><span class="ck">✓</span> Nicho, posicionamento e primeiros clientes</li>
-          <li><span class="ck">✓</span> Tráfego pago simplificado e direto</li>
-          <li><span class="ck">✓</span> Rota clara para escala</li>
-        </ul>
-        <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-s" style="display:inline-flex;padding:12px 24px;font-size:14px">Quero começar →</a>
+        <h3>Sites & Landing Pages</h3>
+        <p>Páginas rápidas e otimizadas que transformam visitantes em clientes pagantes.</p>
+        <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-s offer-cta">Quero saber mais →</a>
       </div>
 
-      <div class="ment-card feat rv d2">
-        <div class="ment-aud">Para profissionais</div>
-        <h3 class="ment-title">Tráfego, Social Media &amp; Afiliados</h3>
-        <p class="ment-desc">Profissionalize sua operação e aumente seus resultados.</p>
-        <ul class="ment-list">
-          <li><span class="ck">✓</span> Meta Ads avançado com escala</li>
-          <li><span class="ck">✓</span> Posicionamento, proposta e captação</li>
-          <li><span class="ck">✓</span> Automação de processos</li>
-        </ul>
-        <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-p" style="display:inline-flex;padding:12px 24px;font-size:14px">Quero evoluir →</a>
-      </div>
-
-      <div class="ment-card rv d3">
-        <div class="ment-aud">Para empresas</div>
-        <h3 class="ment-title">Estrutura, Aquisição e Escala</h3>
-        <p class="ment-desc">Monte uma máquina de aquisição de clientes previsível.</p>
-        <ul class="ment-list">
-          <li><span class="ck">✓</span> Diagnóstico e estratégia de crescimento</li>
-          <li><span class="ck">✓</span> Automação e IA na operação</li>
-          <li><span class="ck">✓</span> Acompanhamento com KPIs claros</li>
-        </ul>
-        <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-s" style="display:inline-flex;padding:12px 24px;font-size:14px">Quero escalar →</a>
+      <div class="offer-card rv d4">
+        <div class="svc-icon g">🎓</div>
+        <h3>Mentoria & Consultoria</h3>
+        <p>Acompanhamento direto — do primeiro resultado até a escala do seu negócio.</p>
+        <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-s offer-cta">Quero saber mais →</a>
       </div>
     </div>
   </div>
@@ -1803,76 +1711,6 @@
 </section>
 
 <!-- =============================================
-     TESTIMONIALS
-============================================= -->
-<section>
-  <div class="container">
-    <div class="label">Depoimentos</div>
-    <h2 class="sec-title rv">O que dizem<br><span class="tg">quem trabalhou comigo</span></h2>
-
-    <div class="test-grid">
-      <div class="test-card rv d1">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">"Antes do Anderson, gastávamos em anúncios sem resultado consistente. Em 2 meses, triplicamos o número de clientes e o custo por lead caiu 60%."</p>
-        <div class="test-author">
-          <div class="test-ava">M</div>
-          <div class="test-info">
-            <h4>Marcos Oliveira</h4>
-            <p>CEO — Clínica de Estética</p>
-          </div>
-        </div>
-      </div>
-      <div class="test-card rv d2">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">"A automação no WhatsApp mudou completamente nossa operação. Nosso atendimento agora funciona 24h e qualificamos leads automaticamente. Incrível."</p>
-        <div class="test-author">
-          <div class="test-ava">J</div>
-          <div class="test-info">
-            <h4>Juliana Santos</h4>
-            <p>Fundadora — Escola Online</p>
-          </div>
-        </div>
-      </div>
-      <div class="test-card rv d3">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">"A mentoria foi diferente de tudo que já fiz. Não é teoria — é execução prática. Saí com um sistema funcionando e clientes entrando no automático."</p>
-        <div class="test-author">
-          <div class="test-ava">R</div>
-          <div class="test-info">
-            <h4>Rafael Costa</h4>
-            <p>Gestor de Tráfego</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============================================
-     FINAL CTA
-============================================= -->
-<section class="cta-sec">
-  <div class="cta-bg"></div>
-  <div class="cta-grid"></div>
-  <div class="container">
-    <div class="cta-inner">
-      <div class="label" style="justify-content:center">Próximo passo</div>
-      <h2 class="cta-title rv">
-        Pronto para <span class="tg">escalar de verdade?</span>
-      </h2>
-      <p class="cta-desc rv d1">
-        Uma conversa pode mudar o rumo do seu negócio.
-      </p>
-      <div class="cta-btns rv d2">
-        <a href="#contato" class="btn-p" style="font-size:16px;padding:18px 38px">⚡ Quero minha estratégia</a>
-        <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-s" style="font-size:16px;padding:18px 38px">💬 WhatsApp direto</a>
-      </div>
-      <p class="cta-note rv d3">Resposta em até 2 horas em dias úteis</p>
-    </div>
-  </div>
-</section>
-
-<!-- =============================================
      CONTACT
 ============================================= -->
 <section class="contact-sec" id="contato">
@@ -1891,11 +1729,11 @@
       <!-- Progresso -->
       <div class="msf-top">
         <div class="msf-progress-track">
-          <div class="msf-progress-fill" id="msfBar" style="width:11.1%"></div>
+          <div class="msf-progress-fill" id="msfBar" style="width:20%"></div>
         </div>
         <div class="msf-meta">
-          <span id="msfLabel">Passo <strong>1</strong> de 9</span>
-          <span id="msfPct">11%</span>
+          <span id="msfLabel">Passo <strong>1</strong> de 5</span>
+          <span id="msfPct">20%</span>
         </div>
       </div>
 
@@ -1939,96 +1777,33 @@
         </div>
       </div>
 
-      <!-- STEP 4 — Faturamento -->
+      <!-- STEP 4 — Desafio -->
       <div class="msf-step" id="msf-s4">
-        <div class="msf-question">💰 Qual é o faturamento atual do seu negócio?</div>
-        <div class="msf-hint">Isso ajuda a entender qual estratégia faz mais sentido para você agora.</div>
-        <div class="msf-opts" style="grid-template-columns:1fr">
-          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">🌱</span>Ainda não estou faturando</div>
-          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">📊</span>Até R$5.000/mês</div>
-          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">📈</span>R$5.000 a R$20.000/mês</div>
-          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">🚀</span>R$20.000 a R$100.000/mês</div>
-          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">💎</span>Acima de R$100.000/mês</div>
+        <div class="msf-question">🔥 Qual é seu maior desafio hoje?</div>
+        <div class="msf-hint">O que trava o crescimento do seu negócio?</div>
+        <div class="msf-opts">
+          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">🧲</span>Atrair mais clientes</div>
+          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">💰</span>Converter leads em vendas</div>
+          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">⚙️</span>Automatizar processos</div>
+          <div class="msf-opt" onclick="msfSelect(this,4)"><span class="msf-opt-icon">🚀</span>Escalar o que já funciona</div>
         </div>
         <div class="msf-nav">
           <button class="msf-back" onclick="msfBack(4)">← Voltar</button>
         </div>
       </div>
 
-      <!-- STEP 5 — Objetivo -->
+      <!-- STEP 5 — Serviço -->
       <div class="msf-step" id="msf-s5">
-        <div class="msf-question">🎯 Qual é o seu principal objetivo?</div>
-        <div class="msf-hint">O que você quer conquistar nos próximos 6 meses?</div>
+        <div class="msf-question">🛠️ O que você precisa agora?</div>
+        <div class="msf-hint">Escolha o que mais faz sentido para você.</div>
         <div class="msf-opts" style="grid-template-columns:1fr">
-          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">💵</span>Chegar a R$10.000/mês</div>
-          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">📈</span>Escalar para R$50.000/mês ou mais</div>
-          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">⚙️</span>Automatizar e ter previsibilidade</div>
-          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">🏆</span>Construir uma marca sólida</div>
-          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">🌍</span>Expandir para novos mercados</div>
+          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">📣</span>Tráfego pago (Meta Ads)</div>
+          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">🤖</span>Automação com IA e WhatsApp</div>
+          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">🖥️</span>Site ou Landing Page</div>
+          <div class="msf-opt" onclick="msfSelect(this,5)"><span class="msf-opt-icon">🎓</span>Mentoria ou Consultoria</div>
         </div>
         <div class="msf-nav">
           <button class="msf-back" onclick="msfBack(5)">← Voltar</button>
-        </div>
-      </div>
-
-      <!-- STEP 6 — Desafio -->
-      <div class="msf-step" id="msf-s6">
-        <div class="msf-question">🔥 Qual é seu maior desafio hoje?</div>
-        <div class="msf-hint">O que trava o crescimento do seu negócio?</div>
-        <div class="msf-opts">
-          <div class="msf-opt" onclick="msfSelect(this,6)"><span class="msf-opt-icon">🧲</span>Atrair mais clientes</div>
-          <div class="msf-opt" onclick="msfSelect(this,6)"><span class="msf-opt-icon">💰</span>Converter leads em vendas</div>
-          <div class="msf-opt" onclick="msfSelect(this,6)"><span class="msf-opt-icon">⚙️</span>Automatizar processos</div>
-          <div class="msf-opt" onclick="msfSelect(this,6)"><span class="msf-opt-icon">🚀</span>Escalar o que já funciona</div>
-        </div>
-        <div class="msf-nav">
-          <button class="msf-back" onclick="msfBack(6)">← Voltar</button>
-        </div>
-      </div>
-
-      <!-- STEP 7 — Já investiu em marketing? -->
-      <div class="msf-step" id="msf-s7">
-        <div class="msf-question">📣 Você já investiu em marketing digital?</div>
-        <div class="msf-hint">Sua experiência anterior vai guiar a estratégia que vou montar para você.</div>
-        <div class="msf-opts" style="grid-template-columns:1fr">
-          <div class="msf-opt" onclick="msfSelect(this,7)"><span class="msf-opt-icon">🔰</span>Nunca investi, quero começar</div>
-          <div class="msf-opt" onclick="msfSelect(this,7)"><span class="msf-opt-icon">😕</span>Tentei, mas não tive resultado</div>
-          <div class="msf-opt" onclick="msfSelect(this,7)"><span class="msf-opt-icon">✅</span>Invisto atualmente e quero melhorar</div>
-          <div class="msf-opt" onclick="msfSelect(this,7)"><span class="msf-opt-icon">💼</span>Tenho equipe, preciso de consultoria</div>
-        </div>
-        <div class="msf-nav">
-          <button class="msf-back" onclick="msfBack(7)">← Voltar</button>
-        </div>
-      </div>
-
-      <!-- STEP 8 — Serviço -->
-      <div class="msf-step" id="msf-s8">
-        <div class="msf-question">🛠️ O que você precisa agora?</div>
-        <div class="msf-hint">Escolha o serviço que mais faz sentido.</div>
-        <div class="msf-opts" style="grid-template-columns:1fr">
-          <div class="msf-opt" onclick="msfSelect(this,8)"><span class="msf-opt-icon">📣</span>Gestão de tráfego pago (Meta Ads)</div>
-          <div class="msf-opt" onclick="msfSelect(this,8)"><span class="msf-opt-icon">🤖</span>Automação com IA e WhatsApp</div>
-          <div class="msf-opt" onclick="msfSelect(this,8)"><span class="msf-opt-icon">🖥️</span>Site ou Landing Page de alta conversão</div>
-          <div class="msf-opt" onclick="msfSelect(this,8)"><span class="msf-opt-icon">🎓</span>Mentoria estratégica</div>
-          <div class="msf-opt" onclick="msfSelect(this,8)"><span class="msf-opt-icon">🏢</span>Consultoria completa para empresa</div>
-        </div>
-        <div class="msf-nav">
-          <button class="msf-back" onclick="msfBack(8)">← Voltar</button>
-        </div>
-      </div>
-
-      <!-- STEP 9 — Investimento -->
-      <div class="msf-step" id="msf-s9">
-        <div class="msf-question">💳 Qual é seu investimento disponível?</div>
-        <div class="msf-hint">Sem compromisso — só para eu entender o melhor caminho para você.</div>
-        <div class="msf-opts">
-          <div class="msf-opt" onclick="msfSelect(this,9)"><span class="msf-opt-icon">🔍</span>Ainda estou avaliando</div>
-          <div class="msf-opt" onclick="msfSelect(this,9)"><span class="msf-opt-icon">💵</span>Até R$1.000/mês</div>
-          <div class="msf-opt" onclick="msfSelect(this,9)"><span class="msf-opt-icon">💴</span>R$1.000 a R$3.000/mês</div>
-          <div class="msf-opt" onclick="msfSelect(this,9)"><span class="msf-opt-icon">💎</span>Acima de R$3.000/mês</div>
-        </div>
-        <div class="msf-nav">
-          <button class="msf-back" onclick="msfBack(9)">← Voltar</button>
         </div>
       </div>
 
@@ -2092,7 +1867,6 @@
       </div>
       <div class="foot-links">
         <a href="#servicos">Serviços</a>
-        <a href="#mentorias">Mentorias</a>
         <a href="#resultados">Resultados</a>
         <a href="#contato">Contato</a>
       </div>
@@ -2248,9 +2022,9 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.rv, [data-target]').forEach(el => io.observe(el));
 
 // ─── MULTI-STEP FORM ────────────────────────────
-const msfData = { nome:'', tel:'', situacao:'', faturamento:'', objetivo:'', desafio:'', ja_investiu:'', servico:'', investimento:'' };
-const msfFields = [null,'nome','tel','situacao','faturamento','objetivo','desafio','ja_investiu','servico','investimento'];
-const msfTotal  = 9;
+const msfData = { nome:'', tel:'', situacao:'', desafio:'', servico:'' };
+const msfFields = [null,'nome','tel','situacao','desafio','servico'];
+const msfTotal  = 5;
 
 function msfSetProgress(step) {
   const pct = Math.round((step / msfTotal) * 100);
@@ -2288,13 +2062,9 @@ function msfSelect(el, step) {
 
   // salva resposta
   const txt = el.textContent.trim();
-  if (step === 3) msfData.situacao    = txt;
-  if (step === 4) msfData.faturamento = txt;
-  if (step === 5) msfData.objetivo    = txt;
-  if (step === 6) msfData.desafio     = txt;
-  if (step === 7) msfData.ja_investiu = txt;
-  if (step === 8) msfData.servico     = txt;
-  if (step === 9) msfData.investimento = txt;
+  if (step === 3) msfData.situacao = txt;
+  if (step === 4) msfData.desafio  = txt;
+  if (step === 5) msfData.servico  = txt;
 
   // avança após breve delay para o usuário ver a seleção
   setTimeout(() => {
@@ -2322,12 +2092,8 @@ function msfFinish() {
 *Nome:* ${msfData.nome}
 *WhatsApp:* ${msfData.tel}
 *Situação:* ${msfData.situacao}
-*Faturamento atual:* ${msfData.faturamento}
-*Objetivo principal:* ${msfData.objetivo}
 *Maior desafio:* ${msfData.desafio}
-*Experiência em marketing:* ${msfData.ja_investiu}
 *Preciso de:* ${msfData.servico}
-*Investimento disponível:* ${msfData.investimento}
 
 Quero entender como você pode me ajudar!`
   );
