@@ -3,51 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Marketing, tráfego pago e automação para empresários brasileiros nos EUA. Pare de depender de indicações e construa um sistema previsível de aquisição de clientes.">
+  <meta name="description" content="Marketing, tráfego pago e automação para empresários brasileiros nos EUA. Pare de depender de indicações e construa um sistema previsível de clientes.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0B0B0B">
-
+  <meta name="theme-color" content="#06090F">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://andersonseabra.com.br/eua">
-  <meta property="og:title"       content="Anderson Seabra | Clientes todos os meses — sem depender de indicação">
-  <meta property="og:description" content="Marketing, tráfego pago e automação para empresários brasileiros nos EUA. Construa um sistema previsível de aquisição de clientes.">
+  <meta property="og:title"       content="Anderson Seabra | Para Empresários Brasileiros nos EUA">
+  <meta property="og:description" content="Você construiu seu negócio nos EUA na raça. Agora é hora de escalar com estratégia.">
   <meta property="og:locale"      content="pt_BR">
-
-  <title>Anderson Seabra | Para Empresários Brasileiros nos EUA</title>
+  <title>Anderson Seabra | Empresários Brasileiros nos EUA</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
     :root {
-      --green:    #00FF87;
-      --blue:     #0070F3;
-      --grad:     linear-gradient(135deg, #00FF87 0%, #0070F3 100%);
-      --grad-text:linear-gradient(90deg, #00FF87, #0070F3);
-      --bg:       #0B0B0B;
-      --bg-card:  #111111;
-      --border:   rgba(255,255,255,0.06);
-      --border-g: rgba(0,255,135,0.25);
-      --text:     #ffffff;
-      --muted:    rgba(255,255,255,0.58);
-      --subtle:   rgba(255,255,255,0.3);
-      --glow-g:   0 0 30px rgba(0,255,135,0.3), 0 0 60px rgba(0,255,135,0.1);
-      --font-h:   'Space Grotesk', sans-serif;
-      --font-b:   'Inter', sans-serif;
-      --r:        12px;
-      --r-lg:     20px;
-      --ease:     cubic-bezier(0.4, 0, 0.2, 1);
-      --t:        all 0.3s var(--ease);
+      --red:       #FF3131;
+      --red-dark:  #CC0000;
+      --gold:      #FFB800;
+      --gold-dark: #E09900;
+      --navy:      #06090F;
+      --navy-card: #0C1020;
+      --navy-card2:#101525;
+      --grad:      linear-gradient(135deg, #FF3131 0%, #FFB800 100%);
+      --grad-text: linear-gradient(90deg, #FF3131, #FFB800);
+      --border:    rgba(255,255,255,0.06);
+      --border-r:  rgba(255,49,49,0.3);
+      --border-g:  rgba(255,184,0,0.25);
+      --text:      #ffffff;
+      --muted:     rgba(255,255,255,0.58);
+      --subtle:    rgba(255,255,255,0.28);
+      --glow-r:    0 0 40px rgba(255,49,49,0.25), 0 0 80px rgba(255,49,49,0.08);
+      --glow-g:    0 0 40px rgba(255,184,0,0.2),  0 0 80px rgba(255,184,0,0.07);
+      --font-h:    'Space Grotesk', sans-serif;
+      --font-b:    'Inter', sans-serif;
+      --r:         12px;
+      --r-lg:      20px;
+      --ease:      cubic-bezier(0.4,0,0.2,1);
+      --t:         all 0.3s var(--ease);
     }
 
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--font-b); line-height: 1.6; overflow-x: hidden; }
+    body { background: var(--navy); color: var(--text); font-family: var(--font-b); line-height: 1.6; overflow-x: hidden; }
 
     .tg {
       background: var(--grad-text);
@@ -57,35 +56,33 @@
     }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 90px 0; }
+    section { padding: 96px 0; }
 
     .label {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--green);
-      background: rgba(0,255,135,0.06);
-      border: 1px solid rgba(0,255,135,0.15);
-      padding: 6px 14px; border-radius: 50px;
-      margin-bottom: 20px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); background: rgba(255,184,0,0.07);
+      border: 1px solid rgba(255,184,0,0.2);
+      padding: 6px 14px; border-radius: 50px; margin-bottom: 20px;
     }
 
     .sec-title {
       font-family: var(--font-h);
       font-size: clamp(28px, 4.5vw, 46px);
-      font-weight: 700; line-height: 1.15;
-      margin-bottom: 16px;
+      font-weight: 800; line-height: 1.12; margin-bottom: 16px;
     }
 
     /* ── Buttons ── */
     .btn-p {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--grad); color: #0B0B0B;
+      background: var(--grad); color: #fff;
       font-family: var(--font-h); font-size: 15px; font-weight: 700;
       padding: 16px 32px; border-radius: 50px;
       text-decoration: none; border: none; cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s;
+      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(255,49,49,0.3);
     }
-    .btn-p:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-p:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,49,49,0.4); }
 
     .btn-wa {
       display: inline-flex; align-items: center; gap: 10px;
@@ -94,17 +91,17 @@
       padding: 16px 32px; border-radius: 50px;
       text-decoration: none; border: none; cursor: pointer;
       transition: opacity 0.2s, transform 0.2s;
+      width: 100%; justify-content: center;
     }
-    .btn-wa:hover { opacity: 0.9; transform: translateY(-2px); }
-    .btn-wa svg { width: 20px; height: 20px; fill: #fff; }
+    .btn-wa:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-wa svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
 
     /* ── Nav ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 16px 0;
-      background: rgba(11,11,11,0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 0;
+      background: rgba(6,9,15,0.92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
     .nav-wrap { display: flex; align-items: center; justify-content: space-between; }
@@ -112,13 +109,21 @@
       font-family: var(--font-h); font-size: 17px; font-weight: 700;
       color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 10px;
     }
-    .logo em { font-style: normal; color: var(--green); }
     .logo-mark {
       width: 32px; height: 32px; border-radius: 8px;
       background: var(--grad); display: flex; align-items: center; justify-content: center;
-      font-size: 15px; font-weight: 900; color: #0B0B0B;
+      font-size: 15px; font-weight: 900; color: #fff;
     }
-    .nav-flag { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .logo em { font-style: normal; color: var(--gold); }
+    .nav-flags { display: flex; align-items: center; gap: 6px; font-size: 20px; }
+    .nav-cta {
+      background: var(--grad); color: #fff;
+      font-family: var(--font-h); font-size: 13px; font-weight: 700;
+      padding: 9px 20px; border-radius: 50px; text-decoration: none;
+      box-shadow: 0 2px 14px rgba(255,49,49,0.3);
+      transition: var(--t);
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
 
     /* ── Hero ── */
     .hero {
@@ -127,139 +132,221 @@
       padding: 120px 0 80px;
       position: relative; overflow: hidden;
     }
-    .hero-glow {
-      position: absolute;
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,255,135,0.07) 0%, transparent 65%);
-      top: -150px; left: -200px; pointer-events: none;
+
+    /* Subtle stars background */
+    .hero-stars {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.45) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 30%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 25% 45%, rgba(255,184,0,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 75% 80%, rgba(255,49,49,0.3) 0%, transparent 100%);
+    }
+
+    .hero-glow-l {
+      position: absolute; top: -100px; left: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,49,49,0.08) 0%, transparent 60%);
+      pointer-events: none;
     }
     .hero-glow-r {
-      position: absolute;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,112,243,0.07) 0%, transparent 65%);
-      bottom: -100px; right: -100px; pointer-events: none;
+      position: absolute; bottom: -150px; right: -150px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,184,0,0.07) 0%, transparent 60%);
+      pointer-events: none;
     }
 
-    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+    /* Diagonal stripe accent (USA flag vibe) */
+    .hero-stripe {
+      position: absolute; top: 0; right: 0;
+      width: 40%; height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(255,49,49,0.03) 40%, rgba(255,49,49,0.03) 45%, transparent 45%,
+        transparent 52%, rgba(255,184,0,0.03) 52%, rgba(255,184,0,0.03) 57%, transparent 57%);
+      pointer-events: none;
+    }
 
-    .hero-flag {
+    .hero-inner { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-badge {
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 13px; color: var(--muted); font-weight: 500;
       background: rgba(255,255,255,0.04);
       border: 1px solid var(--border);
-      padding: 8px 16px; border-radius: 50px;
-      margin-bottom: 28px;
+      padding: 8px 16px; border-radius: 50px; margin-bottom: 32px;
     }
+    .hero-badge span { font-size: 18px; }
 
     .hero-title {
       font-family: var(--font-h);
-      font-size: clamp(36px, 6vw, 68px);
-      font-weight: 800; line-height: 1.1;
-      letter-spacing: -1.5px;
-      margin-bottom: 24px;
+      font-size: clamp(38px, 6.5vw, 72px);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -2px; margin-bottom: 26px;
     }
 
     .hero-sub {
       font-size: clamp(16px, 2vw, 19px);
-      color: var(--muted); line-height: 1.7;
-      margin-bottom: 40px; max-width: 600px;
+      color: var(--muted); line-height: 1.75;
+      margin-bottom: 42px; max-width: 580px;
     }
 
-    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+
+    .hero-line { width: 60px; height: 3px; background: var(--grad); border-radius: 2px; margin-bottom: 28px; }
 
     .hero-proof {
-      display: flex; align-items: center; gap: 20px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap; gap: 24px;
+      display: flex; align-items: stretch; gap: 0;
+      background: var(--navy-card); border: 1px solid var(--border);
+      border-radius: var(--r-lg); overflow: hidden;
+      max-width: 560px;
     }
-    .proof-item { display: flex; align-items: center; gap: 10px; }
+    .proof-item {
+      flex: 1; padding: 20px 24px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .proof-item:last-child { border-right: none; }
     .proof-num {
-      font-family: var(--font-h); font-size: 22px; font-weight: 800;
+      font-family: var(--font-h); font-size: 26px; font-weight: 800;
       background: var(--grad-text);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      display: block; margin-bottom: 4px;
     }
-    .proof-lbl { font-size: 12px; color: var(--muted); line-height: 1.35; max-width: 100px; }
-    .proof-div { width: 1px; height: 32px; background: var(--border); }
+    .proof-lbl { font-size: 11px; color: var(--subtle); line-height: 1.4; }
+
+    /* ── Identidade (quem é você) ── */
+    .id-section {
+      background: var(--navy-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 70px 0;
+    }
+    .id-inner {
+      display: flex; align-items: center; gap: 60px;
+    }
+    .id-flags {
+      display: flex; gap: -10px; flex-shrink: 0;
+      font-size: 80px; line-height: 1;
+      filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5));
+    }
+    .id-flags span:last-child { margin-left: -12px; }
+    .id-text h2 {
+      font-family: var(--font-h); font-size: clamp(22px, 3.5vw, 36px);
+      font-weight: 800; line-height: 1.2; margin-bottom: 16px;
+    }
+    .id-text p { font-size: 16px; color: var(--muted); line-height: 1.75; max-width: 540px; }
 
     /* ── Dor ── */
-    .dor-section { background: rgba(255,255,255,0.012); }
+    .dor-section { background: var(--navy); }
     .dor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 44px; }
     .dor-card {
-      background: rgba(255,80,80,0.05);
-      border: 1px solid rgba(255,80,80,0.15);
+      background: var(--navy-card);
+      border: 1px solid rgba(255,49,49,0.12);
       border-radius: var(--r-lg); padding: 28px;
       display: flex; gap: 16px; align-items: flex-start;
+      position: relative; overflow: hidden;
+      transition: var(--t);
     }
-    .dor-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
-    .dor-card h4 { font-family: var(--font-h); font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-    .dor-card p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .dor-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), transparent); }
+    .dor-card:hover { border-color: rgba(255,49,49,0.25); transform: translateY(-3px); }
+    .dor-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+    .dor-card h4 { font-family: var(--font-h); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .dor-card p  { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
     /* ── Solução ── */
-    .sol-lead {
-      font-size: 18px; color: var(--muted); line-height: 1.75;
-      max-width: 680px; margin: 0 auto 60px; text-align: center;
-    }
-    .sol-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .sol-section { background: var(--navy-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .sol-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 50px; }
     .sol-card {
-      background: var(--bg-card);
+      background: var(--navy-card2);
       border: 1px solid var(--border);
       border-radius: var(--r-lg); padding: 32px;
       position: relative; overflow: hidden;
       transition: var(--t);
     }
     .sol-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); }
-    .sol-card:hover { border-color: var(--border-g); transform: translateY(-4px); }
-    .sol-icon { font-size: 36px; margin-bottom: 18px; }
-    .sol-card h3 { font-family: var(--font-h); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-    .sol-card p  { font-size: 13px; color: var(--muted); line-height: 1.65; }
-    .sol-card ul { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .sol-card:hover { border-color: var(--border-g); transform: translateY(-4px); box-shadow: var(--glow-g); }
+    .sol-num {
+      font-family: var(--font-h); font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .sol-icon { font-size: 38px; margin-bottom: 16px; }
+    .sol-card h3 { font-family: var(--font-h); font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+    .sol-card p  { font-size: 13px; color: var(--muted); line-height: 1.68; }
+    .sol-card ul { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
     .sol-card ul li { font-size: 13px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; }
-    .sol-card ul li::before { content: '→'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .sol-card ul li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
 
-    /* ── Como funciona ── */
-    .como-section { background: rgba(255,255,255,0.012); }
-    .como-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 50px; position: relative; }
-    .como-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px; left: 12%; right: 12%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-g), transparent);
+    /* ── Resultado destaque ── */
+    .res-banner {
+      margin-top: 60px;
+      background: linear-gradient(135deg, rgba(255,49,49,0.08) 0%, rgba(255,184,0,0.06) 100%);
+      border: 1px solid var(--border-r);
+      border-radius: var(--r-lg);
+      padding: 40px 48px;
+      display: flex; align-items: center; gap: 40px;
+      flex-wrap: wrap;
     }
-    .como-step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
-    .como-num {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--grad);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-h); font-size: 20px; font-weight: 800; color: #0B0B0B;
-      margin: 0 auto 20px;
+    .res-banner-num {
+      font-family: var(--font-h); font-size: 64px; font-weight: 800; line-height: 1;
+      background: var(--grad-text);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      flex-shrink: 0;
     }
-    .como-step h4 { font-family: var(--font-h); font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-    .como-step p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .res-banner-txt h4 { font-family: var(--font-h); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .res-banner-txt p  { font-size: 14px; color: var(--muted); max-width: 400px; line-height: 1.65; }
 
     /* ── Form ── */
-    .form-section { text-align: center; }
+    .form-section { background: var(--navy); }
+    .form-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+    .form-left h2 { font-family: var(--font-h); font-size: clamp(28px, 4vw, 40px); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+    .form-left p  { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
+    .form-checks { display: flex; flex-direction: column; gap: 14px; }
+    .form-check {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; color: var(--muted);
+    }
+    .form-check-icon {
+      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+      background: var(--grad); display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; color: #fff;
+    }
+
     .form-wrap {
-      max-width: 560px; margin: 50px auto 0;
-      background: var(--bg-card);
+      background: var(--navy-card);
       border: 1px solid var(--border-g);
-      border-radius: var(--r-lg);
-      padding: 40px;
+      border-radius: var(--r-lg); padding: 36px;
       box-shadow: var(--glow-g);
     }
 
-    .msf-progress { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 10px; overflow: hidden; }
+    .vaga-alert {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 24px; padding: 11px 16px;
+      background: rgba(255,49,49,0.08);
+      border: 1px solid rgba(255,49,49,0.25);
+      border-radius: var(--r); font-size: 13px;
+      color: rgba(255,255,255,0.85);
+    }
+    .vaga-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0;
+      animation: vPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes vPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,49,49,0.6); }
+      70%  { box-shadow: 0 0 0 8px rgba(255,49,49,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,49,49,0); }
+    }
+
+    .msf-progress { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; margin-bottom: 10px; overflow: hidden; }
     .msf-fill { height: 100%; background: var(--grad); border-radius: 2px; transition: width 0.4s var(--ease); }
-    .msf-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--subtle); margin-bottom: 32px; }
+    .msf-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--subtle); margin-bottom: 28px; }
 
     .msf-step { display: none; }
     .msf-step.active { display: block; }
 
-    .msf-q { font-family: var(--font-h); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
-    .msf-hint-txt { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .msf-q { font-family: var(--font-h); font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+    .msf-hint-txt { font-size: 13px; color: var(--muted); margin-bottom: 22px; }
 
     .fi {
       width: 100%; padding: 14px 16px;
@@ -269,60 +356,42 @@
       font-family: var(--font-b); font-size: 16px;
       transition: var(--t); outline: none;
     }
-    .fi:focus { border-color: var(--border-g); background: rgba(0,255,135,0.03); box-shadow: 0 0 0 3px rgba(0,255,135,0.08); }
+    .fi:focus { border-color: rgba(255,184,0,0.4); background: rgba(255,184,0,0.03); box-shadow: 0 0 0 3px rgba(255,184,0,0.08); }
     .fi::placeholder { color: var(--subtle); }
-    .fi-error { display: block; margin-top: 6px; font-size: 12px; color: #ff5555; min-height: 16px; text-align: left; }
+    .fi-error { display: block; margin-top: 6px; font-size: 12px; color: #ff5555; min-height: 16px; }
 
-    .msf-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; gap: 12px; }
+    .msf-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 22px; gap: 12px; }
     .msf-back { background: none; border: none; color: var(--subtle); font-size: 14px; cursor: pointer; padding: 8px 0; transition: color 0.2s; }
     .msf-back:hover { color: var(--text); }
 
     .msf-opts { display: flex; flex-direction: column; gap: 10px; }
     .msf-opt {
       display: flex; align-items: center; gap: 12px;
-      padding: 14px 18px;
+      padding: 13px 16px;
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
       border-radius: var(--r); cursor: pointer;
       font-size: 14px; font-weight: 500;
       transition: var(--t); text-align: left;
     }
-    .msf-opt:hover { border-color: var(--border-g); background: rgba(0,255,135,0.04); }
-    .msf-opt.selected { border-color: var(--green); background: rgba(0,255,135,0.08); color: var(--green); }
+    .msf-opt:hover  { border-color: var(--border-g); background: rgba(255,184,0,0.04); }
+    .msf-opt.selected { border-color: var(--gold); background: rgba(255,184,0,0.08); color: var(--gold); }
     .msf-opt-icon { font-size: 20px; flex-shrink: 0; }
 
     .msf-success { display: none; text-align: center; }
     .msf-success.show { display: block; }
-    .msf-success-icon { font-size: 56px; margin-bottom: 16px; }
-    .msf-success h3 { font-family: var(--font-h); font-size: 24px; font-weight: 700; margin-bottom: 10px; }
-    .msf-success p  { font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.65; }
-
-    .vaga-alert {
-      display: inline-flex; align-items: center; gap: 10px;
-      margin-top: 20px; padding: 10px 18px;
-      background: rgba(255,80,80,0.08);
-      border: 1px solid rgba(255,80,80,0.3);
-      border-radius: 50px; font-size: 13px;
-      color: rgba(255,255,255,0.85);
-    }
-    .vaga-dot {
-      width: 8px; height: 8px; border-radius: 50%; background: #ff5050; flex-shrink: 0;
-      animation: vagaPulse 1.5s ease-in-out infinite;
-    }
-    @keyframes vagaPulse {
-      0%   { box-shadow: 0 0 0 0 rgba(255,80,80,0.6); }
-      70%  { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,80,80,0); }
-    }
+    .msf-success-icon { font-size: 56px; margin-bottom: 14px; }
+    .msf-success h3 { font-family: var(--font-h); font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .msf-success p  { font-size: 14px; color: var(--muted); margin-bottom: 26px; line-height: 1.65; }
 
     /* ── Footer ── */
     footer {
-      padding: 40px 0;
+      padding: 36px 0;
       border-top: 1px solid var(--border);
       text-align: center;
     }
     footer p { font-size: 13px; color: var(--subtle); }
-    footer a { color: var(--green); text-decoration: none; }
+    footer a { color: var(--gold); text-decoration: none; }
 
     /* ── WhatsApp float ── */
     .wa-float {
@@ -331,35 +400,37 @@
       background: #25D366;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none; transition: transform 0.2s;
     }
-    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+    .wa-float:hover { transform: scale(1.08); }
     .wa-float svg { width: 28px; height: 28px; fill: #fff; }
 
     /* ── Scroll reveal ── */
-    .rv { opacity: 0; transform: translateY(24px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-    .rv.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+    .rv { opacity:0; transform:translateY(24px); transition:opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+    .rv.in { opacity:1; transform:none; }
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
 
     /* ── Responsive ── */
     @media (max-width: 960px) {
-      .sol-grid  { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-      .como-steps { grid-template-columns: repeat(2,1fr); gap: 32px; }
-      .como-steps::before { display: none; }
-      .dor-grid  { grid-template-columns: 1fr; }
+      .sol-grid   { grid-template-columns: 1fr; max-width: 480px; margin: 40px auto 0; }
+      .form-inner { grid-template-columns: 1fr; gap: 40px; }
+      .id-inner   { flex-direction: column; gap: 28px; text-align: center; }
+      .id-flags   { justify-content: center; }
+      .dor-grid   { grid-template-columns: 1fr; }
+      .res-banner { flex-direction: column; gap: 20px; padding: 32px; }
     }
     @media (max-width: 600px) {
       section { padding: 64px 0; }
       .container { padding: 0 18px; }
-      .hero { padding: 100px 0 64px; }
+      .hero { padding: 100px 0 60px; }
       .hero-title { letter-spacing: -0.5px; }
       .hero-ctas { flex-direction: column; }
-      .btn-p, .btn-wa { justify-content: center; width: 100%; padding: 16px 20px; }
-      .como-steps { grid-template-columns: 1fr; }
-      .form-wrap { padding: 28px 20px; }
-      .hero-proof { gap: 16px; }
-      .proof-div { display: none; }
+      .btn-p { justify-content: center; width: 100%; padding: 16px 20px; }
+      .hero-proof { display: none; }
+      .nav-cta { display: none; }
+      .form-wrap { padding: 24px 18px; }
+      .res-banner-num { font-size: 48px; }
+      .id-flags { font-size: 60px; }
     }
   </style>
 </head>
@@ -373,50 +444,56 @@
         <div class="logo-mark">A</div>
         Anderson <em>Seabra</em>
       </a>
-      <span class="nav-flag">🇧🇷 Para brasileiros nos EUA</span>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="nav-flags">🇧🇷🇺🇸</div>
+        <a href="#contato" class="nav-cta">Quero mais clientes</a>
+      </div>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-glow"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-glow-l"></div>
   <div class="hero-glow-r"></div>
+  <div class="hero-stripe"></div>
+
   <div class="container">
     <div class="hero-inner">
 
-      <div class="hero-flag rv">
-        🇺🇸 Você está nos Estados Unidos
+      <div class="hero-badge rv">
+        <span>🇧🇷</span> Brasileiros nos EUA <span>🇺🇸</span>
       </div>
 
       <h1 class="hero-title rv">
-        Seu negócio ainda<br>
-        vive de<br>
-        <span class="tg">indicação?</span>
+        Você construiu<br>
+        seu negócio na raça.<br>
+        <span class="tg">Agora escale com estratégia.</span>
       </h1>
 
       <p class="hero-sub rv">
-        Indicação é ótima — mas não escala. Ajudo empresários brasileiros nos EUA a construir um sistema previsível de aquisição de clientes com marketing, tráfego pago e automação.
+        Indicação trouxe você até aqui — mas não vai te levar ao próximo nível. Ajudo empresários brasileiros nos EUA a construir um sistema previsível de clientes com marketing, tráfego pago e automação.
       </p>
 
       <div class="hero-ctas rv">
-        <a href="#contato" class="btn-p">⚡ Quero parar de depender de indicação</a>
+        <a href="#contato" class="btn-p">🚀 Quero clientes todo mês</a>
       </div>
+
+      <div class="hero-line rv"></div>
 
       <div class="hero-proof rv">
         <div class="proof-item">
-          <div class="proof-num">+150</div>
-          <div class="proof-lbl">projetos entregues</div>
+          <span class="proof-num">+150</span>
+          <span class="proof-lbl">Projetos entregues</span>
         </div>
-        <div class="proof-div"></div>
         <div class="proof-item">
-          <div class="proof-num">5+</div>
-          <div class="proof-lbl">anos de experiência</div>
+          <span class="proof-num">5+</span>
+          <span class="proof-lbl">Anos de experiência</span>
         </div>
-        <div class="proof-div"></div>
         <div class="proof-item">
-          <div class="proof-num">4.7x</div>
-          <div class="proof-lbl">retorno médio sobre investimento</div>
+          <span class="proof-num">4.7x</span>
+          <span class="proof-lbl">Retorno médio sobre investimento</span>
         </div>
       </div>
 
@@ -424,42 +501,54 @@
   </div>
 </section>
 
+<!-- IDENTIDADE -->
+<div class="id-section">
+  <div class="container">
+    <div class="id-inner">
+      <div class="id-flags rv">
+        <span>🇧🇷</span><span>🇺🇸</span>
+      </div>
+      <div class="id-text rv">
+        <h2>Você é brasileiro.<br>Vive nos Estados Unidos.<br><span class="tg">Seu negócio merece os dois mundos.</span></h2>
+        <p>A garra brasileira que te trouxe até aqui combinada com a estrutura e escala do mercado americano. Falta só o sistema certo para atrair clientes de forma consistente — sem depender do boca a boca.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- DOR -->
 <section class="dor-section">
   <div class="container">
-    <div class="label">O problema</div>
+    <div class="label">O que trava seu crescimento</div>
     <h2 class="sec-title rv">Indicação tem teto.<br><span class="tg">Seu negócio não pode ter.</span></h2>
-    <p class="rv" style="color:var(--muted);font-size:16px;margin-bottom:0;max-width:600px;line-height:1.75;">
-      Empresários brasileiros nos EUA crescem no boca a boca — até travar. Esse modelo funciona até um certo ponto e depois para de crescer.
-    </p>
 
-    <div class="dor-grid" style="margin-top:40px;">
+    <div class="dor-grid">
       <div class="dor-card rv">
-        <div class="dor-icon">😰</div>
+        <div class="dor-icon">📉</div>
         <div>
-          <h4>Mês bom, mês ruim</h4>
-          <p>Sem previsibilidade. O faturamento depende de quem te indicou esse mês — e isso não está no seu controle.</p>
+          <h4>Faturamento imprevisível</h4>
+          <p>Mês bom, mês ruim. Você não controla quando os clientes chegam — e essa instabilidade trava qualquer planejamento de crescimento.</p>
         </div>
       </div>
       <div class="dor-card rv d1">
         <div class="dor-icon">🔇</div>
         <div>
-          <h4>Invisível para quem não te conhece</h4>
-          <p>O americano, o brasileiro que chegou agora, o cliente fora da sua bolha — nenhum deles te encontra. Só quem já te conhece chega.</p>
+          <h4>Invisível fora da sua rede</h4>
+          <p>Quem não te conhece não te encontra. O americano, o brasileiro recém-chegado, o cliente fora da sua bolha — todos passam ao largo do seu negócio.</p>
         </div>
       </div>
       <div class="dor-card rv d2">
         <div class="dor-icon">⏳</div>
         <div>
-          <h4>Crescimento limitado à sua rede</h4>
-          <p>Quando a rede de contatos satura, o crescimento trava. Você trabalha mais e o resultado não acompanha.</p>
+          <h4>Crescimento travado na rede de contatos</h4>
+          <p>Quando a rede satura, o crescimento para. Você trabalha mais, se esforça mais — e o resultado não acompanha.</p>
         </div>
       </div>
       <div class="dor-card rv d3">
-        <div class="dor-icon">📵</div>
+        <div class="dor-icon">🇺🇸</div>
         <div>
-          <h4>Sem presença digital que vende</h4>
-          <p>Ter Instagram ou site bonito não basta. Sem estratégia e tráfego, você é invisível para quem mais precisa do que você oferece.</p>
+          <h4>Concorrência com quem já tem sistema</h4>
+          <p>Seus concorrentes americanos têm anúncios, automação e funil. Você ainda depende de quem te indicou. A disputa não está equilibrada.</p>
         </div>
       </div>
     </div>
@@ -467,75 +556,55 @@
 </section>
 
 <!-- SOLUÇÃO -->
-<section>
-  <div class="container" style="text-align:center;">
-    <div class="label">A solução</div>
-    <h2 class="sec-title rv">Um sistema que<br><span class="tg">traz clientes todos os meses</span></h2>
-    <p class="sol-lead rv">
-      Sem depender de quem te indicou. Sem esperar o telefone tocar. Com estratégia, tecnologia e execução real.
+<section class="sol-section">
+  <div class="container">
+    <div class="label">O que eu faço por você</div>
+    <h2 class="sec-title rv" style="text-align:center;">Um sistema que traz<br><span class="tg">clientes todos os meses</span></h2>
+    <p class="rv" style="text-align:center;color:var(--muted);font-size:16px;max-width:580px;margin:0 auto;line-height:1.75;">
+      Sem esperar indicação. Sem depender de sorte. Com estratégia real executada do início ao fim.
     </p>
 
     <div class="sol-grid">
       <div class="sol-card rv">
+        <div class="sol-num">01 — Tráfego</div>
         <div class="sol-icon">📣</div>
         <h3>Tráfego Pago</h3>
-        <p>Anúncios no Meta (Facebook e Instagram) segmentados para o público certo — na cidade certa, no momento certo.</p>
+        <p>Anúncios no Meta (Facebook e Instagram) segmentados para o público certo — na cidade certa, no idioma certo.</p>
         <ul>
           <li>Campanhas em português para brasileiros nos EUA</li>
           <li>Funil completo do clique ao contato</li>
-          <li>Otimização contínua para baixar custo por lead</li>
+          <li>Custo por lead otimizado continuamente</li>
         </ul>
       </div>
       <div class="sol-card rv d1">
+        <div class="sol-num">02 — Automação</div>
         <div class="sol-icon">🤖</div>
         <h3>Automação e IA</h3>
-        <p>Seu negócio respondendo, qualificando e agendando clientes — mesmo quando você está trabalhando ou dormindo.</p>
+        <p>Seu negócio respondendo, qualificando e fechando clientes — mesmo quando você está trabalhando ou dormindo.</p>
         <ul>
           <li>Atendimento automático via WhatsApp</li>
           <li>Qualificação inteligente de leads</li>
-          <li>Follow-up automático sem esforço manual</li>
+          <li>Follow-up sem esforço manual</li>
         </ul>
       </div>
       <div class="sol-card rv d2">
+        <div class="sol-num">03 — Estratégia</div>
         <div class="sol-icon">🎯</div>
         <h3>Estratégia Digital</h3>
-        <p>Não executo no escuro. Analiso seu negócio, seu mercado e monto a estratégia antes de investir um centavo.</p>
+        <p>Não executo no escuro. Analiso seu mercado local, sua concorrência e monto a estratégia antes de investir um centavo.</p>
         <ul>
           <li>Análise de mercado e concorrência local</li>
           <li>Posicionamento e oferta irresistível</li>
-          <li>Estratégia de crescimento previsível</li>
+          <li>Crescimento previsível e escalável</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- COMO FUNCIONA -->
-<section class="como-section">
-  <div class="container" style="text-align:center;">
-    <div class="label">Como funciona</div>
-    <h2 class="sec-title rv">Do primeiro contato<br><span class="tg">aos primeiros resultados</span></h2>
-
-    <div class="como-steps">
-      <div class="como-step rv">
-        <div class="como-num">1</div>
-        <h4>Diagnóstico</h4>
-        <p>Entendo seu negócio, seu mercado e onde estão as oportunidades reais de crescimento.</p>
-      </div>
-      <div class="como-step rv d1">
-        <div class="como-num">2</div>
-        <h4>Estratégia</h4>
-        <p>Monto o plano de aquisição de clientes: canais, público, oferta e mensagem.</p>
-      </div>
-      <div class="como-step rv d2">
-        <div class="como-num">3</div>
-        <h4>Implementação</h4>
-        <p>Executo tudo — anúncios, automações, landing page — sem deixar nada na sua mão.</p>
-      </div>
-      <div class="como-step rv d3">
-        <div class="como-num">4</div>
-        <h4>Resultados</h4>
-        <p>Leads chegando todos os meses. Você foca em atender. Eu cuido do sistema.</p>
+    <div class="res-banner rv">
+      <div class="res-banner-num">4.7x</div>
+      <div class="res-banner-txt">
+        <h4>Retorno médio sobre investimento em anúncios</h4>
+        <p>Campanha do zero com criativo, segmentação e landing page dedicada. Resultado alcançado em 45 dias de operação.</p>
       </div>
     </div>
   </div>
@@ -544,88 +613,104 @@
 <!-- FORM -->
 <section class="form-section" id="contato">
   <div class="container">
-    <div class="label" style="display:block;text-align:center;">Vamos conversar</div>
-    <h2 class="sec-title rv" style="text-align:center;">Pronto para parar de<br><span class="tg">depender de indicação?</span></h2>
-    <p class="rv" style="color:var(--muted);font-size:15px;text-align:center;max-width:500px;margin:0 auto;">
-      Responda 4 perguntas rápidas. Analiso seu caso e entro em contato pessoalmente.
-    </p>
-    <div class="vaga-alert rv" style="display:inline-flex;margin:20px auto 0;display:flex;justify-content:center;">
-      <span class="vaga-dot"></span>
-      <strong>Apenas 3 vagas abertas este mês</strong> — encerro no dia 30/04
-    </div>
+    <div class="form-inner">
 
-    <div class="form-wrap rv">
-
-      <!-- Progresso -->
-      <div class="msf-progress"><div class="msf-fill" id="euaBar" style="width:25%"></div></div>
-      <div class="msf-meta">
-        <span id="euaLabel">Passo <strong>1</strong> de 4</span>
-        <span id="euaPct">25%</span>
-      </div>
-
-      <!-- Step 1: Nome -->
-      <div class="msf-step active" id="eua-s1">
-        <div class="msf-q">👋 Qual é o seu nome?</div>
-        <div class="msf-hint-txt">Para eu personalizar nossa conversa.</div>
-        <input type="text" class="fi" id="eua-nome" placeholder="Seu nome completo" autocomplete="given-name">
-        <div class="msf-nav" style="justify-content:flex-end;">
-          <button class="btn-p" onclick="euaNext(1)">Continuar →</button>
+      <div class="form-left">
+        <div class="label">Vamos conversar</div>
+        <h2 class="rv">Pronto para parar de depender<br><span class="tg">de indicação?</span></h2>
+        <p class="rv">Responda 4 perguntas rápidas. Analiso seu caso pessoalmente e te mostro o caminho para atrair clientes de forma previsível.</p>
+        <div class="form-checks rv">
+          <div class="form-check">
+            <div class="form-check-icon">✓</div>
+            <span>Diagnóstico gratuito do seu negócio</span>
+          </div>
+          <div class="form-check">
+            <div class="form-check-icon">✓</div>
+            <span>Estratégia personalizada para o seu mercado nos EUA</span>
+          </div>
+          <div class="form-check">
+            <div class="form-check-icon">✓</div>
+            <span>Retorno em até 24h diretamente no seu WhatsApp</span>
+          </div>
+          <div class="form-check">
+            <div class="form-check-icon">✓</div>
+            <span>Sem enrolação — só conversa direta</span>
+          </div>
         </div>
       </div>
 
-      <!-- Step 2: WhatsApp -->
-      <div class="msf-step" id="eua-s2">
-        <div class="msf-q">📱 Qual é o seu WhatsApp?</div>
-        <div class="msf-hint-txt">Pode colocar com DDI: +1 (555) 000-0000 ou +55 (81) 99999-0000</div>
-        <input type="tel" class="fi" id="eua-tel" placeholder="+1 ou +55 ..." autocomplete="tel" inputmode="tel">
-        <span class="fi-error" id="eua-tel-err"></span>
-        <div class="msf-nav">
-          <button class="msf-back" onclick="euaBack(2)">← Voltar</button>
-          <button class="btn-p" onclick="euaNext(2)">Continuar →</button>
+      <div class="form-wrap rv">
+        <div class="vaga-alert">
+          <span class="vaga-dot"></span>
+          <strong>Apenas 3 vagas abertas este mês</strong>
         </div>
-      </div>
 
-      <!-- Step 3: Segmento -->
-      <div class="msf-step" id="eua-s3">
-        <div class="msf-q">🏢 Qual é o seu negócio?</div>
-        <div class="msf-hint-txt">Escolha o que melhor descreve o que você faz.</div>
-        <div class="msf-opts">
-          <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">🍽️</span>Restaurante / Alimentação</div>
-          <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">🏗️</span>Construção / Reforma / Serviços</div>
-          <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">💆</span>Beleza / Estética / Saúde</div>
-          <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">📦</span>Comércio / Loja / E-commerce</div>
-          <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">💼</span>Consultoria / Serviço profissional</div>
-          <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">🔧</span>Outro serviço</div>
+        <div class="msf-progress"><div class="msf-fill" id="euaBar" style="width:25%"></div></div>
+        <div class="msf-meta">
+          <span id="euaLabel">Passo <strong>1</strong> de 4</span>
+          <span id="euaPct">25%</span>
         </div>
-        <div class="msf-nav">
-          <button class="msf-back" onclick="euaBack(3)">← Voltar</button>
-        </div>
-      </div>
 
-      <!-- Step 4: Desafio -->
-      <div class="msf-step" id="eua-s4">
-        <div class="msf-q">🎯 O que você mais precisa agora?</div>
-        <div class="msf-hint-txt">Qual é a sua maior prioridade hoje?</div>
-        <div class="msf-opts">
-          <div class="msf-opt" onclick="euaSelect(this,4)"><span class="msf-opt-icon">🧲</span>Atrair clientes novos todo mês</div>
-          <div class="msf-opt" onclick="euaSelect(this,4)"><span class="msf-opt-icon">🤖</span>Automatizar atendimento e follow-up</div>
-          <div class="msf-opt" onclick="euaSelect(this,4)"><span class="msf-opt-icon">📣</span>Aparecer para quem ainda não me conhece</div>
-          <div class="msf-opt" onclick="euaSelect(this,4)"><span class="msf-opt-icon">🚀</span>Escalar o que já funciona</div>
+        <!-- Step 1: Nome -->
+        <div class="msf-step active" id="eua-s1">
+          <div class="msf-q">👋 Qual é o seu nome?</div>
+          <div class="msf-hint-txt">Vou usar para personalizar nossa conversa.</div>
+          <input type="text" class="fi" id="eua-nome" placeholder="Seu nome completo" autocomplete="given-name">
+          <div class="msf-nav" style="justify-content:flex-end;">
+            <button class="btn-p" onclick="euaNext(1)">Continuar →</button>
+          </div>
         </div>
-        <div class="msf-nav">
-          <button class="msf-back" onclick="euaBack(4)">← Voltar</button>
-        </div>
-      </div>
 
-      <!-- Sucesso -->
-      <div class="msf-success" id="euaSuccess">
-        <div class="msf-success-icon">✅</div>
-        <h3>Perfeito, <span id="euaNomeFinal"></span>!</h3>
-        <p>Recebi suas respostas e vou analisar pessoalmente. Clique abaixo para a gente conversar no WhatsApp — respondo em até 24h.</p>
-        <a href="#" id="euaWaBtn" target="_blank" rel="noopener" class="btn-wa">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.613l5.701-1.469A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.655-.523-5.168-1.432l-.361-.214-3.737.962.988-3.683-.231-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Falar no WhatsApp agora
-        </a>
+        <!-- Step 2: WhatsApp -->
+        <div class="msf-step" id="eua-s2">
+          <div class="msf-q">📱 Qual é o seu WhatsApp?</div>
+          <div class="msf-hint-txt">Pode colocar com DDI: +1 (555) 000-0000 ou +55 (81) 99999-0000</div>
+          <input type="tel" class="fi" id="eua-tel" placeholder="+1 ou +55 ..." autocomplete="tel" inputmode="tel">
+          <span class="fi-error" id="eua-tel-err"></span>
+          <div class="msf-nav">
+            <button class="msf-back" onclick="euaBack(2)">← Voltar</button>
+            <button class="btn-p" onclick="euaNext(2)">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Segmento -->
+        <div class="msf-step" id="eua-s3">
+          <div class="msf-q">🏢 Qual é o seu negócio?</div>
+          <div class="msf-hint-txt">Escolha o que melhor descreve o que você faz.</div>
+          <div class="msf-opts">
+            <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">🍽️</span>Restaurante / Alimentação</div>
+            <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">🏗️</span>Construção / Reforma / Serviços</div>
+            <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">💆</span>Beleza / Estética / Saúde</div>
+            <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">📦</span>Comércio / Loja / E-commerce</div>
+            <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">💼</span>Consultoria / Serviço profissional</div>
+            <div class="msf-opt" onclick="euaSelect(this,3)"><span class="msf-opt-icon">🔧</span>Outro segmento</div>
+          </div>
+          <div class="msf-nav"><button class="msf-back" onclick="euaBack(3)">← Voltar</button></div>
+        </div>
+
+        <!-- Step 4: Prioridade -->
+        <div class="msf-step" id="eua-s4">
+          <div class="msf-q">🎯 O que você mais precisa agora?</div>
+          <div class="msf-hint-txt">Qual é sua maior prioridade nesse momento?</div>
+          <div class="msf-opts">
+            <div class="msf-opt" onclick="euaSelect(this,4)"><span class="msf-opt-icon">🧲</span>Atrair clientes novos todo mês</div>
+            <div class="msf-opt" onclick="euaSelect(this,4)"><span class="msf-opt-icon">🤖</span>Automatizar atendimento e follow-up</div>
+            <div class="msf-opt" onclick="euaSelect(this,4)"><span class="msf-opt-icon">📣</span>Aparecer para quem ainda não me conhece</div>
+            <div class="msf-opt" onclick="euaSelect(this,4)"><span class="msf-opt-icon">🚀</span>Escalar o que já funciona</div>
+          </div>
+          <div class="msf-nav"><button class="msf-back" onclick="euaBack(4)">← Voltar</button></div>
+        </div>
+
+        <!-- Sucesso -->
+        <div class="msf-success" id="euaSuccess">
+          <div class="msf-success-icon">🎉</div>
+          <h3>Perfeito, <span id="euaNomeFinal"></span>!</h3>
+          <p>Recebi suas respostas e vou analisar pessoalmente. Clique abaixo — vamos conversar diretamente no WhatsApp.</p>
+          <a href="#" id="euaWaBtn" target="_blank" rel="noopener" class="btn-wa">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.613l5.701-1.469A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.655-.523-5.168-1.432l-.361-.214-3.737.962.988-3.683-.231-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Falar no WhatsApp agora
+          </a>
+        </div>
       </div>
 
     </div>
@@ -635,7 +720,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>© 2025 Anderson Seabra · <a href="/">andersonseabra.com.br</a></p>
+    <p>🇧🇷🇺🇸 &nbsp;© 2025 Anderson Seabra · <a href="/">andersonseabra.com.br</a></p>
   </div>
 </footer>
 
@@ -645,23 +730,23 @@
 </a>
 
 <script>
-// ── Quiz EUA ──────────────────────────────────────
-const euaData = { nome:'', tel:'', negocio:'', prioridade:'' };
+const euaData  = { nome:'', tel:'', negocio:'', prioridade:'' };
 const euaTotal = 4;
 
 function euaSetProgress(step) {
   const pct = Math.round((step / euaTotal) * 100);
-  document.getElementById('euaBar').style.width = pct + '%';
-  document.getElementById('euaLabel').innerHTML = `Passo <strong>${step}</strong> de ${euaTotal}`;
-  document.getElementById('euaPct').textContent  = pct + '%';
+  document.getElementById('euaBar').style.width   = pct + '%';
+  document.getElementById('euaLabel').innerHTML   = `Passo <strong>${step}</strong> de ${euaTotal}`;
+  document.getElementById('euaPct').textContent   = pct + '%';
 }
-
 function euaShow(n) {
-  document.querySelectorAll('#eua-s1,#eua-s2,#eua-s3,#eua-s4').forEach(s => s.classList.remove('active'));
+  ['eua-s1','eua-s2','eua-s3','eua-s4'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('active');
+  });
   const el = document.getElementById('eua-s' + n);
   if (el) { el.classList.add('active'); euaSetProgress(n); }
 }
-
 function euaNext(step) {
   if (step === 1) {
     const v = document.getElementById('eua-nome').value.trim();
@@ -673,7 +758,9 @@ function euaNext(step) {
     const err    = document.getElementById('eua-tel-err');
     const digits = v.replace(/\D/g, '');
     if (digits.length < 8) {
-      err.textContent = digits.length === 0 ? 'Informe seu WhatsApp para continuar.' : 'Número muito curto. Inclua o DDI: +1 ou +55';
+      err.textContent = digits.length === 0
+        ? 'Informe seu WhatsApp para continuar.'
+        : 'Número muito curto. Inclua o DDI: +1 ou +55';
       shakeEl('eua-tel'); return;
     }
     err.textContent = '';
@@ -681,43 +768,40 @@ function euaNext(step) {
   }
   euaShow(step + 1);
 }
-
 function euaBack(step) { euaShow(step - 1); }
-
 function euaSelect(el, step) {
   el.closest('.msf-opts').querySelectorAll('.msf-opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   const txt = el.textContent.trim();
   if (step === 3) euaData.negocio    = txt;
   if (step === 4) euaData.prioridade = txt;
-
   setTimeout(() => {
     if (step < euaTotal) { euaShow(step + 1); }
     else { euaFinish(); }
   }, 320);
 }
-
 function euaFinish() {
-  document.querySelectorAll('#eua-s1,#eua-s2,#eua-s3,#eua-s4').forEach(s => s.classList.remove('active'));
+  ['eua-s1','eua-s2','eua-s3','eua-s4'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('active');
+  });
   document.getElementById('euaBar').style.width = '100%';
   document.getElementById('euaLabel').innerHTML = `Passo <strong>${euaTotal}</strong> de ${euaTotal}`;
-  document.getElementById('euaPct').textContent = '100%';
+  document.getElementById('euaPct').textContent  = '100%';
   document.getElementById('euaNomeFinal').textContent = euaData.nome.split(' ')[0];
-
   const msg = encodeURIComponent(
-`Olá Anderson! Preenchi o formulário da página EUA 🇺🇸
+`Olá Anderson! Preenchi o formulário da página EUA 🇧🇷🇺🇸
 
 *Nome:* ${euaData.nome}
 *WhatsApp:* ${euaData.tel}
 *Negócio:* ${euaData.negocio}
 *Prioridade:* ${euaData.prioridade}
 
-Quero parar de depender de indicação e crescer de forma previsível!`
+Quero parar de depender de indicação e ter clientes todo mês!`
   );
   document.getElementById('euaWaBtn').href = `https://wa.me/5581985981192?text=${msg}`;
   document.getElementById('euaSuccess').classList.add('show');
 }
-
 function shakeEl(id) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -726,11 +810,9 @@ function shakeEl(id) {
   el.animate([{transform:'translateX(-4px)'},{transform:'translateX(4px)'},{transform:'none'}],{duration:200,iterations:2});
   setTimeout(() => { el.style.borderColor=''; el.style.boxShadow=''; }, 1500);
 }
-
-// ── Scroll reveal ────────────────────────────────
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 </script>
 </body>
