@@ -48,6 +48,78 @@
     html { scroll-behavior: smooth; }
     body { background: var(--navy); color: var(--text); font-family: var(--font-b); line-height: 1.6; overflow-x: hidden; }
 
+    /* ── Top alert bar ── */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 2000;
+      background: var(--grad);
+      padding: 10px 20px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      transform: translateY(-100%);
+      animation: topbarSlide 0.6s 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards;
+      transition: transform 0.4s var(--ease);
+    }
+    .topbar.hidden { transform: translateY(-100%); animation: none; }
+    @keyframes topbarSlide {
+      to { transform: translateY(0); }
+    }
+    .topbar-flags { font-size: 20px; display: flex; gap: 2px; }
+    .topbar-text {
+      font-family: var(--font-h); font-size: 13px; font-weight: 700; color: #fff;
+      letter-spacing: 0.2px;
+    }
+    .topbar-text strong { font-weight: 800; }
+    .topbar-pulse {
+      width: 8px; height: 8px; border-radius: 50%; background: #fff; flex-shrink: 0;
+      animation: tPulse 1.4s ease-in-out infinite;
+    }
+    @keyframes tPulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(0.7); }
+    }
+    .topbar-close {
+      position: absolute; right: 16px;
+      background: rgba(0,0,0,0.2); border: none; color: #fff;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .topbar-close:hover { background: rgba(0,0,0,0.35); }
+
+    /* ── Hero location card ── */
+    .hero-location {
+      display: inline-flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,184,0,0.2);
+      border-radius: 16px; padding: 14px 20px;
+      margin-bottom: 28px;
+      animation: locFadeIn 0.7s 1.4s both;
+    }
+    @keyframes locFadeIn {
+      from { opacity:0; transform: translateY(10px); }
+      to   { opacity:1; transform: none; }
+    }
+    .hero-loc-flags { font-size: 28px; display: flex; gap: 4px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); }
+    .hero-loc-text { display: flex; flex-direction: column; }
+    .hero-loc-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 2px;
+    }
+    .hero-loc-title { font-family: var(--font-h); font-size: 15px; font-weight: 700; color: #fff; }
+    .hero-loc-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(255,184,0,0.5);
+      animation: locPulse 2s ease-in-out infinite;
+    }
+    @keyframes locPulse {
+      0%  { box-shadow: 0 0 0 0 rgba(255,184,0,0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(255,184,0,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(255,184,0,0); }
+    }
+
+    /* ── Typewriter cursor ── */
+    .type-cursor { border-right: 3px solid var(--gold); animation: blink 0.8s step-end infinite; padding-right: 2px; }
+    @keyframes blink { 0%,100%{ border-color: var(--gold); } 50%{ border-color: transparent; } }
+
     .tg {
       background: var(--grad-text);
       -webkit-background-clip: text;
@@ -98,12 +170,14 @@
 
     /* ── Nav ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 1000;
       padding: 14px 0;
       background: rgba(6,9,15,0.92);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
+      transition: top 0.4s var(--ease);
     }
+    nav.no-topbar { top: 0; }
     .nav-wrap { display: flex; align-items: center; justify-content: space-between; }
     .logo {
       font-family: var(--font-h); font-size: 17px; font-weight: 700;
@@ -129,7 +203,7 @@
     .hero {
       min-height: 100vh;
       display: flex; align-items: center;
-      padding: 120px 0 80px;
+      padding: 160px 0 80px;
       position: relative; overflow: hidden;
     }
 
@@ -436,8 +510,18 @@
 </head>
 <body>
 
+<!-- TOP ALERT BAR -->
+<div class="topbar" id="topbar">
+  <div class="topbar-pulse"></div>
+  <div class="topbar-flags">🇧🇷🇺🇸</div>
+  <div class="topbar-text">
+    <strong>Empresário brasileiro nos EUA?</strong> &nbsp;Esta página foi feita exclusivamente para você.
+  </div>
+  <button class="topbar-close" onclick="closeTopbar()" aria-label="Fechar">×</button>
+</div>
+
 <!-- NAV -->
-<nav>
+<nav id="mainNav">
   <div class="container">
     <div class="nav-wrap">
       <a href="/" class="logo">
@@ -462,14 +546,20 @@
   <div class="container">
     <div class="hero-inner">
 
-      <div class="hero-badge rv">
-        <span>🇧🇷</span> Brasileiros nos EUA <span>🇺🇸</span>
+      <!-- Location card -->
+      <div class="hero-location">
+        <div class="hero-loc-flags"><span>🇧🇷</span><span>🇺🇸</span></div>
+        <div class="hero-loc-text">
+          <span class="hero-loc-tag">📍 Esta página é para você</span>
+          <span class="hero-loc-title">Empresário brasileiro nos Estados Unidos</span>
+        </div>
+        <div class="hero-loc-dot"></div>
       </div>
 
       <h1 class="hero-title rv">
         Você construiu<br>
         seu negócio na raça.<br>
-        <span class="tg">Agora escale com estratégia.</span>
+        <span class="tg" id="heroTyped"></span><span class="type-cursor" id="heroCursor"></span>
       </h1>
 
       <p class="hero-sub rv">
@@ -814,6 +904,49 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// ── Topbar ───────────────────────────────────────
+function closeTopbar() {
+  const bar = document.getElementById('topbar');
+  const nav = document.getElementById('mainNav');
+  bar.classList.add('hidden');
+  nav.classList.add('no-topbar');
+}
+
+// ── Typewriter ───────────────────────────────────
+(function () {
+  const phrases = [
+    'Agora escale com estratégia.',
+    'Chega de depender de indicação.',
+    'Tenha clientes todo mês.'
+  ];
+  const el     = document.getElementById('heroTyped');
+  const cursor = document.getElementById('heroCursor');
+  if (!el) return;
+  let pi = 0, ci = 0, deleting = false;
+
+  function tick() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      el.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) {
+        setTimeout(() => { deleting = true; tick(); }, 2200);
+        return;
+      }
+      setTimeout(tick, 55);
+    } else {
+      el.textContent = phrase.slice(0, --ci);
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % phrases.length;
+        setTimeout(tick, 400);
+        return;
+      }
+      setTimeout(tick, 28);
+    }
+  }
+  setTimeout(tick, 1800);
+})();
 </script>
 </body>
 </html>
