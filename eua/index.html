@@ -242,7 +242,50 @@
       pointer-events: none;
     }
 
-    .hero-inner { position: relative; z-index: 1; max-width: 800px; }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-content { /* text column */ }
+
+    /* ── Hero photo ── */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex; justify-content: center;
+    }
+    .hero-photo-frame {
+      width: 100%; max-width: 340px;
+      border-radius: 24px; overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,184,0,0.2);
+      box-shadow: 0 0 60px rgba(255,49,49,0.15), 0 0 120px rgba(255,184,0,0.08);
+    }
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, rgba(6,9,15,0.85) 100%);
+      z-index: 1;
+    }
+    .hero-photo-frame img {
+      width: 100%; display: block;
+      object-fit: cover; aspect-ratio: 3/4;
+    }
+    /* Floating badge on photo */
+    .photo-badge {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 2; white-space: nowrap;
+      background: rgba(6,9,15,0.85);
+      border: 1px solid rgba(255,184,0,0.3);
+      backdrop-filter: blur(12px);
+      border-radius: 50px; padding: 8px 18px;
+      font-family: var(--font-h); font-size: 13px; font-weight: 700;
+      color: var(--gold); display: flex; align-items: center; gap: 8px;
+    }
+    .photo-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: locPulse 2s infinite; }
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 10px;
@@ -288,6 +331,49 @@
       display: block; margin-bottom: 4px;
     }
     .proof-lbl { font-size: 11px; color: var(--subtle); line-height: 1.4; }
+
+    /* ── Sobre ── */
+    .sobre-section { background: var(--navy); }
+    .sobre-inner {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px; align-items: center;
+    }
+    .sobre-foto-wrap { position: relative; flex-shrink: 0; }
+    .sobre-foto {
+      width: 260px; height: 320px;
+      border-radius: 20px; overflow: hidden;
+      border: 1px solid rgba(255,184,0,0.2);
+      box-shadow: 0 0 40px rgba(255,49,49,0.12);
+      position: relative;
+    }
+    .sobre-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .sobre-foto::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(6,9,15,0.6) 100%);
+    }
+    .sobre-text h2 { font-family: var(--font-h); font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .sobre-text p  { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
+    .sobre-text blockquote {
+      border-left: 3px solid var(--gold);
+      padding-left: 18px; margin: 22px 0;
+      font-size: 16px; color: rgba(255,255,255,0.8);
+      font-style: italic; line-height: 1.7;
+    }
+    .sobre-links { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+    .sobre-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 50px;
+      font-family: var(--font-h); font-size: 13px; font-weight: 700;
+      text-decoration: none; transition: var(--t);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .sobre-link:hover { border-color: var(--border-g); color: var(--text); transform: translateY(-2px); }
+    .sobre-link.ig { border-color: rgba(255,255,255,0.15); }
+    .sobre-link.ig:hover { border-color: #E1306C; color: #E1306C; }
+    .sobre-link svg { width: 16px; height: 16px; }
 
     /* ── Identidade (quem é você) ── */
     .id-section {
@@ -486,17 +572,22 @@
 
     /* ── Responsive ── */
     @media (max-width: 960px) {
-      .sol-grid   { grid-template-columns: 1fr; max-width: 480px; margin: 40px auto 0; }
-      .form-inner { grid-template-columns: 1fr; gap: 40px; }
-      .id-inner   { flex-direction: column; gap: 28px; text-align: center; }
-      .id-flags   { justify-content: center; }
-      .dor-grid   { grid-template-columns: 1fr; }
-      .res-banner { flex-direction: column; gap: 20px; padding: 32px; }
+      .hero-inner  { grid-template-columns: 1fr; }
+      .hero-photo-wrap { display: none; }
+      .sol-grid    { grid-template-columns: 1fr; max-width: 480px; margin: 40px auto 0; }
+      .form-inner  { grid-template-columns: 1fr; gap: 40px; }
+      .id-inner    { flex-direction: column; gap: 28px; text-align: center; }
+      .id-flags    { justify-content: center; }
+      .dor-grid    { grid-template-columns: 1fr; }
+      .res-banner  { flex-direction: column; gap: 20px; padding: 32px; }
+      .sobre-inner { grid-template-columns: 1fr; }
+      .sobre-foto  { width: 100%; height: 280px; max-width: 300px; margin: 0 auto; }
+      .sobre-foto-wrap { display: flex; justify-content: center; }
     }
     @media (max-width: 600px) {
       section { padding: 64px 0; }
       .container { padding: 0 18px; }
-      .hero { padding: 100px 0 60px; }
+      .hero { padding: 120px 0 60px; }
       .hero-title { letter-spacing: -0.5px; }
       .hero-ctas { flex-direction: column; }
       .btn-p { justify-content: center; width: 100%; padding: 16px 20px; }
@@ -546,44 +637,57 @@
   <div class="container">
     <div class="hero-inner">
 
-      <!-- Location card -->
-      <div class="hero-location">
-        <div class="hero-loc-flags"><span>🇧🇷</span><span>🇺🇸</span></div>
-        <div class="hero-loc-text">
-          <span class="hero-loc-tag">📍 Esta página é para você</span>
-          <span class="hero-loc-title">Empresário brasileiro nos Estados Unidos</span>
+      <!-- Coluna de texto -->
+      <div class="hero-content">
+        <div class="hero-location">
+          <div class="hero-loc-flags"><span>🇧🇷</span><span>🇺🇸</span></div>
+          <div class="hero-loc-text">
+            <span class="hero-loc-tag">📍 Esta página é para você</span>
+            <span class="hero-loc-title">Empresário brasileiro nos Estados Unidos</span>
+          </div>
+          <div class="hero-loc-dot"></div>
         </div>
-        <div class="hero-loc-dot"></div>
+
+        <h1 class="hero-title rv">
+          Você construiu<br>
+          seu negócio na raça.<br>
+          <span class="tg" id="heroTyped"></span><span class="type-cursor" id="heroCursor"></span>
+        </h1>
+
+        <p class="hero-sub rv">
+          Indicação trouxe você até aqui — mas não vai te levar ao próximo nível. Ajudo empresários brasileiros nos EUA a construir um sistema previsível de clientes com marketing, tráfego pago e automação.
+        </p>
+
+        <div class="hero-ctas rv">
+          <a href="#contato" class="btn-p">🚀 Quero clientes todo mês</a>
+        </div>
+
+        <div class="hero-line rv"></div>
+
+        <div class="hero-proof rv">
+          <div class="proof-item">
+            <span class="proof-num">+150</span>
+            <span class="proof-lbl">Projetos entregues</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-num">5+</span>
+            <span class="proof-lbl">Anos de experiência</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-num">4.7x</span>
+            <span class="proof-lbl">Retorno médio sobre investimento</span>
+          </div>
+        </div>
       </div>
 
-      <h1 class="hero-title rv">
-        Você construiu<br>
-        seu negócio na raça.<br>
-        <span class="tg" id="heroTyped"></span><span class="type-cursor" id="heroCursor"></span>
-      </h1>
-
-      <p class="hero-sub rv">
-        Indicação trouxe você até aqui — mas não vai te levar ao próximo nível. Ajudo empresários brasileiros nos EUA a construir um sistema previsível de clientes com marketing, tráfego pago e automação.
-      </p>
-
-      <div class="hero-ctas rv">
-        <a href="#contato" class="btn-p">🚀 Quero clientes todo mês</a>
-      </div>
-
-      <div class="hero-line rv"></div>
-
-      <div class="hero-proof rv">
-        <div class="proof-item">
-          <span class="proof-num">+150</span>
-          <span class="proof-lbl">Projetos entregues</span>
+      <!-- Coluna da foto -->
+      <div class="hero-photo-wrap rv">
+        <div class="hero-photo-frame">
+          <img src="/public/foto inicial.jpg" alt="Anderson Seabra">
         </div>
-        <div class="proof-item">
-          <span class="proof-num">5+</span>
-          <span class="proof-lbl">Anos de experiência</span>
-        </div>
-        <div class="proof-item">
-          <span class="proof-num">4.7x</span>
-          <span class="proof-lbl">Retorno médio sobre investimento</span>
+        <div class="photo-badge">
+          <span class="photo-badge-dot"></span>
+          Especialista em crescimento digital
         </div>
       </div>
 
@@ -605,6 +709,45 @@
     </div>
   </div>
 </div>
+
+<!-- SOBRE -->
+<section class="sobre-section" id="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+
+      <div class="sobre-foto-wrap rv">
+        <div class="sobre-foto">
+          <img src="/public/foto inicial.jpg" alt="Anderson Seabra">
+        </div>
+      </div>
+
+      <div class="sobre-text rv d1">
+        <div class="label">Quem vai te ajudar</div>
+        <h2>Sou Anderson Seabra,<br><span class="tg">especialista em crescimento digital</span></h2>
+        <p>
+          Há mais de 5 anos ajudo negócios a sair do boca a boca e construir sistemas reais de aquisição de clientes — com tráfego pago, automação e inteligência artificial.
+        </p>
+        <p>
+          Já trabalhei com mais de 150 projetos, desde pequenos negócios locais até operações que faturam alto. Não sou consultor que só fala — executo do início ao fim.
+        </p>
+        <blockquote>
+          "Minha missão é transformar o seu esforço diário em resultado previsível. Você cuida do negócio. Eu cuido dos clientes chegando."
+        </blockquote>
+        <div class="sobre-links">
+          <a href="https://www.instagram.com/andersonseabraa?igsh=bmlndm1xcHVkMm9m&utm_source=qr" target="_blank" rel="noopener" class="sobre-link ig">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            @andersonseabraa
+          </a>
+          <a href="#contato" class="sobre-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            Falar comigo
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- DOR -->
 <section class="dor-section">
@@ -810,7 +953,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>🇧🇷🇺🇸 &nbsp;© 2025 Anderson Seabra · <a href="/">andersonseabra.com.br</a></p>
+    <p>🇧🇷🇺🇸 &nbsp;© 2025 Anderson Seabra · <a href="/">andersonseabra.com.br</a> · <a href="https://www.instagram.com/andersonseabraa" target="_blank" rel="noopener">@andersonseabraa</a></p>
   </div>
 </footer>
 
