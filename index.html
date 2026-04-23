@@ -1639,6 +1639,121 @@
       .lgpd-ok, .lgpd-no { flex: 1; text-align: center; }
     }
 
+    /* ─── VAGA ALERT ─────────────────────────────── */
+    .vaga-alert {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 10px 18px;
+      background: rgba(255, 80, 80, 0.08);
+      border: 1px solid rgba(255, 80, 80, 0.3);
+      border-radius: 50px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+    }
+    .vaga-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #ff5050;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(255,80,80,0.6);
+      animation: vagaPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes vagaPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,80,80,0.6); }
+      70%  { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,80,80,0); }
+    }
+
+    /* ─── EXIT INTENT ─────────────────────────────── */
+    .exit-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 99998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease);
+    }
+    .exit-overlay.show { opacity: 1; pointer-events: all; }
+
+    .exit-modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border-g);
+      border-radius: var(--r-lg);
+      padding: 40px 36px;
+      max-width: 440px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      box-shadow: var(--glow-g);
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.35s var(--ease);
+    }
+    .exit-overlay.show .exit-modal { transform: none; }
+
+    .exit-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: none; border: none;
+      color: var(--subtle); font-size: 22px;
+      cursor: pointer; line-height: 1;
+      transition: color 0.2s;
+    }
+    .exit-close:hover { color: var(--text); }
+
+    .exit-emoji { font-size: 40px; margin-bottom: 14px; }
+    .exit-title {
+      font-family: var(--font-h);
+      font-size: 22px; font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .exit-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 26px;
+    }
+    .exit-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      font-family: var(--font-h);
+      font-size: 15px; font-weight: 700;
+      padding: 15px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .exit-wa:hover { opacity: 0.9; transform: translateY(-1px); }
+    .exit-wa svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+    .exit-skip {
+      display: block;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--subtle);
+      cursor: pointer;
+      background: none; border: none;
+      transition: color 0.2s;
+    }
+    .exit-skip:hover { color: var(--muted); }
+
+    @media (max-width: 600px) {
+      .exit-modal { padding: 32px 22px; }
+      .exit-title { font-size: 19px; }
+    }
+
     /* ── Phones pequenos (≤390px) ── */
     @media (max-width: 390px) {
       .hero-title { font-size: 30px; }
@@ -1699,17 +1814,16 @@
         </div>
 
         <h1 class="hero-title">
-          Transformo negócios em<br>
-          <span class="tg">máquinas de vendas</span><br>
-          com marketing, automação<br>e inteligência artificial.
+          Está no digital mas<br>os resultados<br>
+          <span class="tg">ainda não aparecem?</span>
         </h1>
 
         <p class="hero-sub">
-          Estratégia, tecnologia e execução para crescimento previsível.
+          Estruturo estratégia, automação e tecnologia para transformar seu negócio em uma máquina de vendas previsível.
         </p>
 
         <div class="hero-ctas">
-          <a href="#contato" class="btn-p ripple-wrap">⚡ Quero escalar meu negócio</a>
+          <a href="#contato" class="btn-p ripple-wrap">⚡ Quero resultado de verdade</a>
           <a href="https://wa.me/5581985981192" target="_blank" rel="noopener" class="btn-s">💬 Falar no WhatsApp</a>
         </div>
       </div>
@@ -1960,6 +2074,10 @@
       <div class="label">Contato</div>
       <h2>Vamos construir<br><span class="tg">algo grande juntos</span></h2>
       <p>Preencha o formulário estratégico abaixo. Analiso cada resposta individualmente para garantir que posso realmente ajudar no seu caso.</p>
+      <div class="vaga-alert">
+        <span class="vaga-dot"></span>
+        <strong>Apenas 3 vagas abertas este mês</strong> — encerro no dia 30/04
+      </div>
     </div>
 
     <!-- Formulário multi-etapas -->
@@ -2478,6 +2596,67 @@ document.addEventListener('click', e => {
   r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
   btn.appendChild(r);
   r.addEventListener('animationend', () => r.remove());
+});
+</script>
+
+<!-- =============================================
+     EXIT INTENT
+============================================= -->
+<div class="exit-overlay" id="exitOverlay" role="dialog" aria-modal="true">
+  <div class="exit-modal">
+    <button class="exit-close" onclick="exitClose()" aria-label="Fechar">×</button>
+    <div class="exit-emoji">⚡</div>
+    <h2 class="exit-title">Espera! Antes de você ir...</h2>
+    <p class="exit-sub">
+      Me conta em 1 minuto o que trava o seu negócio.<br>
+      Respondo pessoalmente com um caminho claro para você.
+    </p>
+    <a class="exit-wa" href="https://wa.me/5581985981192?text=Ol%C3%A1%20Anderson!%20Vi%20seu%20site%20e%20quero%20entender%20como%20voc%C3%AA%20pode%20me%20ajudar." target="_blank" rel="noopener" onclick="exitClose()">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.613l5.701-1.469A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.655-.523-5.168-1.432l-.361-.214-3.737.962.988-3.683-.231-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Falar no WhatsApp agora
+    </a>
+    <button class="exit-skip" onclick="exitClose()">Não, obrigado</button>
+  </div>
+</div>
+
+<script>
+// ─── EXIT INTENT ─────────────────────────────────
+(function () {
+  const overlay = document.getElementById('exitOverlay');
+  if (!overlay) return;
+  if (sessionStorage.getItem('exitShown')) return;
+
+  let shown = false;
+  function show() {
+    if (shown) return;
+    shown = true;
+    sessionStorage.setItem('exitShown', '1');
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Desktop: cursor leaving to top of page
+  document.addEventListener('mouseleave', e => {
+    if (e.clientY <= 0) show();
+  });
+
+  // Mobile: show after 40s of inactivity (user reading but not converting)
+  if ('ontouchstart' in window) {
+    let timer = setTimeout(show, 40000);
+    document.addEventListener('touchstart', () => {
+      clearTimeout(timer);
+      timer = setTimeout(show, 40000);
+    }, { passive: true });
+  }
+})();
+
+function exitClose() {
+  const overlay = document.getElementById('exitOverlay');
+  if (overlay) { overlay.classList.remove('show'); document.body.style.overflow = ''; }
+}
+// close on overlay click outside modal
+document.getElementById('exitOverlay').addEventListener('click', function(e) {
+  if (e.target === this) exitClose();
 });
 </script>
 </body>
