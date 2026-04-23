@@ -366,14 +366,47 @@
       display: inline-flex; align-items: center; gap: 8px;
       padding: 10px 18px; border-radius: 50px;
       font-family: var(--font-h); font-size: 13px; font-weight: 700;
-      text-decoration: none; transition: var(--t);
+      text-decoration: none; transition: all 0.3s var(--ease);
       border: 1px solid var(--border);
       color: var(--muted);
     }
-    .sobre-link:hover { border-color: var(--border-g); color: var(--text); transform: translateY(-2px); }
-    .sobre-link.ig { border-color: rgba(255,255,255,0.15); }
-    .sobre-link.ig:hover { border-color: #E1306C; color: #E1306C; }
+    .sobre-link:hover { transform: translateY(-2px); }
     .sobre-link svg { width: 16px; height: 16px; }
+
+    /* Instagram glow */
+    .sobre-link.ig {
+      border-color: rgba(225,48,108,0.35);
+      color: rgba(225,48,108,0.85);
+      animation: igGlow 2.5s ease-in-out infinite;
+    }
+    .sobre-link.ig:hover {
+      border-color: #E1306C;
+      color: #fff;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      box-shadow: 0 0 20px rgba(225,48,108,0.5), 0 0 40px rgba(225,48,108,0.2);
+      animation: none;
+    }
+    @keyframes igGlow {
+      0%,100% { box-shadow: 0 0 8px rgba(225,48,108,0.2), 0 0 0px rgba(225,48,108,0); border-color: rgba(225,48,108,0.35); }
+      50%      { box-shadow: 0 0 18px rgba(225,48,108,0.45), 0 0 32px rgba(252,176,69,0.15); border-color: rgba(225,48,108,0.65); }
+    }
+
+    /* "Falar comigo" gold glow */
+    .sobre-link.cta-link {
+      border-color: rgba(255,184,0,0.3);
+      color: rgba(255,184,0,0.8);
+      animation: ctaGlow 2.5s 1.2s ease-in-out infinite;
+    }
+    .sobre-link.cta-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      box-shadow: 0 0 20px rgba(255,184,0,0.4), 0 0 40px rgba(255,184,0,0.15);
+      animation: none;
+    }
+    @keyframes ctaGlow {
+      0%,100% { box-shadow: 0 0 6px rgba(255,184,0,0.15); border-color: rgba(255,184,0,0.3); }
+      50%      { box-shadow: 0 0 16px rgba(255,184,0,0.4); border-color: rgba(255,184,0,0.6); }
+    }
 
     /* ── Identidade (quem é você) ── */
     .id-section {
@@ -560,10 +593,23 @@
       background: #25D366;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      text-decoration: none; transition: transform 0.2s;
+      text-decoration: none; transition: transform 0.25s var(--ease);
+      animation: waFloatPulse 2.2s ease-in-out infinite;
     }
-    .wa-float:hover { transform: scale(1.08); }
+    .wa-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 6px 32px rgba(37,211,102,0.65); }
     .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    @keyframes waFloatPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.4); }
+      50%      { box-shadow: 0 4px 28px rgba(37,211,102,0.55), 0 0 0 12px rgba(37,211,102,0); }
+    }
+
+    /* WA btn inside form */
+    .btn-wa { animation: waInlinePulse 2.5s ease-in-out infinite; }
+    .btn-wa:hover { animation: none; box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+    @keyframes waInlinePulse {
+      0%,100% { box-shadow: 0 4px 16px rgba(37,211,102,0.3); }
+      50%      { box-shadow: 0 4px 28px rgba(37,211,102,0.55), 0 0 0 6px rgba(37,211,102,0.08); }
+    }
 
     /* ── Scroll reveal ── */
     .rv { opacity:0; transform:translateY(24px); transition:opacity 0.65s var(--ease), transform 0.65s var(--ease); }
@@ -738,7 +784,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
             @andersonseabraa
           </a>
-          <a href="#contato" class="sobre-link">
+          <a href="#contato" class="sobre-link cta-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             Falar comigo
           </a>
