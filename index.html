@@ -1392,6 +1392,7 @@
     /* Input dentro do step */
     .msf-input { margin-bottom: 20px; }
     .msf-input .fi { font-size: 16px; }
+    .fi-error { display: block; margin-top: 7px; font-size: 12px; color: #ff5555; min-height: 16px; }
 
     /* Navegação */
     .msf-nav {
@@ -2111,7 +2112,8 @@
         <div class="msf-question">📱 Qual é o seu WhatsApp?</div>
         <div class="msf-hint">Para eu entrar em contato diretamente com você.</div>
         <div class="msf-input">
-          <input type="tel" class="fi" id="msf-tel" placeholder="(00) 00000-0000" autocomplete="tel">
+          <input type="tel" class="fi" id="msf-tel" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric" oninput="maskTel(this)" maxlength="15">
+          <span class="fi-error" id="msf-tel-err"></span>
         </div>
         <div class="msf-nav">
           <button class="msf-back" onclick="msfBack(2)">← Voltar</button>
@@ -2404,8 +2406,17 @@ function msfNext(step) {
     msfData.nome = v;
   }
   if (step === 2) {
-    const v = document.getElementById('msf-tel').value.trim();
-    if (!v) { shakeInput('msf-tel'); return; }
+    const v   = document.getElementById('msf-tel').value.trim();
+    const err = document.getElementById('msf-tel-err');
+    const digits = v.replace(/\D/g, '');
+    if (digits.length < 10) {
+      err.textContent = digits.length === 0
+        ? 'Informe seu WhatsApp para continuar.'
+        : 'Número incompleto. Ex: (81) 99999-0000';
+      shakeInput('msf-tel');
+      return;
+    }
+    err.textContent = '';
     msfData.tel = v;
   }
   msfShowStep(step + 1);
@@ -2512,6 +2523,17 @@ document.querySelectorAll('.dep-card video').forEach(v => {
   }, { threshold: 0.5 });
   if (depSection) peekObserver.observe(depSection);
 })();
+
+function maskTel(input) {
+  let d = input.value.replace(/\D/g, '').slice(0, 11);
+  if      (d.length > 6) d = `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+  else if (d.length > 2) d = `(${d.slice(0,2)}) ${d.slice(2)}`;
+  else if (d.length > 0) d = `(${d}`;
+  input.value = d;
+  // limpa erro ao digitar
+  const err = document.getElementById('msf-tel-err');
+  if (err) err.textContent = '';
+}
 
 function shakeInput(id) {
   const el = document.getElementById(id);
