@@ -647,6 +647,113 @@
     .dep-name { font-family: var(--font-h); font-size: 14px; font-weight: 700; margin-bottom: 2px; }
     .dep-role { font-size: 12px; color: var(--subtle); }
 
+    /* ── FAQ ── */
+    .faq-section { background: var(--navy); }
+    .faq-list { max-width: 740px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item.open { border-color: rgba(255,184,0,0.3); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px; cursor: pointer; gap: 16px;
+      font-family: var(--font-h); font-size: 15px; font-weight: 600;
+      user-select: none;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(255,184,0,0.1); border: 1px solid rgba(255,184,0,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; line-height: 1; color: var(--gold);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(255,184,0,0.2); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+    .faq-a p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    /* ── Diagnóstico gamificado ── */
+    .diag-section { background: var(--navy-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .diag-wrap {
+      max-width: 680px; margin: 48px auto 0;
+      background: var(--navy-card2);
+      border: 1px solid var(--border-g);
+      border-radius: 24px; padding: 40px;
+      box-shadow: 0 0 60px rgba(255,184,0,0.06);
+    }
+    /* progress */
+    .diag-prog-bar { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; margin-bottom: 8px; overflow: hidden; }
+    .diag-prog-fill { height: 100%; background: var(--grad); border-radius: 2px; transition: width 0.5s var(--ease); }
+    .diag-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--subtle); margin-bottom: 32px; }
+
+    /* steps */
+    .diag-step { display: none; }
+    .diag-step.active { display: block; }
+    .diag-step-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .diag-q { font-family: var(--font-h); font-size: 20px; font-weight: 700; line-height: 1.3; margin-bottom: 24px; }
+    .diag-opts { display: flex; flex-direction: column; gap: 10px; }
+    .diag-opt {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--r); cursor: pointer;
+      font-size: 14px; line-height: 1.4;
+      transition: var(--t); position: relative; overflow: hidden;
+    }
+    .diag-opt:hover  { border-color: rgba(255,184,0,0.3); background: rgba(255,184,0,0.04); }
+    .diag-opt.picked { border-color: var(--gold); background: rgba(255,184,0,0.1); color: var(--gold); }
+    .diag-opt-pts { font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--subtle); margin-left: auto; flex-shrink: 0; }
+    .diag-opt.picked .diag-opt-pts { color: var(--gold); }
+
+    /* result */
+    .diag-result { display: none; text-align: center; }
+    .diag-result.show { display: block; }
+    .diag-score-wrap { position: relative; width: 140px; height: 140px; margin: 0 auto 24px; }
+    .diag-score-wrap svg { transform: rotate(-90deg); }
+    .diag-score-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
+    .diag-score-fill  { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1); }
+    .diag-score-num {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-family: var(--font-h);
+    }
+    .diag-score-val  { font-size: 36px; font-weight: 800; line-height: 1; }
+    .diag-score-pts  { font-size: 11px; color: var(--subtle); }
+    .diag-result-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px; border-radius: 50px;
+      font-family: var(--font-h); font-size: 13px; font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .diag-result-title { font-family: var(--font-h); font-size: 22px; font-weight: 800; margin-bottom: 10px; line-height: 1.25; }
+    .diag-result-desc  { font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 480px; margin: 0 auto 28px; }
+    .diag-result-wa {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff;
+      font-family: var(--font-h); font-size: 15px; font-weight: 700;
+      padding: 16px 28px; border-radius: 50px; text-decoration: none;
+      width: 100%; justify-content: center;
+      animation: waInlinePulse 2.5s ease-in-out infinite;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .diag-result-wa:hover { opacity: 0.9; transform: translateY(-2px); animation: none; box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+    .diag-result-wa svg { width: 22px; height: 22px; fill: #fff; }
+    .diag-restart { background: none; border: none; color: var(--subtle); font-size: 13px; cursor: pointer; margin-top: 14px; display: block; width: 100%; transition: color 0.2s; }
+    .diag-restart:hover { color: var(--muted); }
+
     @media (max-width: 960px) {
       .dep-grid    { grid-template-columns: repeat(2, 1fr); }
       .hero-inner  { grid-template-columns: 1fr; }
@@ -674,6 +781,8 @@
       .form-wrap { padding: 24px 18px; }
       .form-checks { display: none; } /* simplifica no mobile */
       .dep-grid    { grid-template-columns: 1fr; }
+      .diag-wrap   { padding: 24px 18px; }
+      .diag-q      { font-size: 17px; }
       .res-banner  { text-align: center; }
       .res-banner-num { font-size: 48px; }
       .id-flags { font-size: 60px; }
@@ -1031,6 +1140,173 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container" style="text-align:center;">
+    <div class="label">Dúvidas frequentes</div>
+    <h2 class="sec-title rv">Perguntas que todo<br><span class="tg">empresário me faz antes de começar</span></h2>
+
+    <div class="faq-list rv">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="faqToggle(this)">
+          Funciona para o meu tipo de negócio nos EUA?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Sim. Já trabalhei com restaurantes, salões de beleza, empresas de construção, clínicas, serviços de limpeza, consultorias e muito mais. A estratégia é personalizada para o seu mercado, sua cidade e seu público — não é fórmula pronta.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="faqToggle(this)">
+          Quanto preciso investir em anúncios?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Depende do seu mercado e objetivo, mas a maioria dos negócios começa com US$ 300–600/mês em anúncios. O importante é que esse valor seja gerenciado com estratégia — não basta apenas "impulsionar posts". Trabalhamos com o orçamento que você tem e escalamos conforme o retorno aparecer.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="faqToggle(this)">
+          Em quanto tempo vejo resultado?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Os primeiros leads costumam aparecer na primeira ou segunda semana de campanha. Resultado consistente e previsível leva de 30 a 60 dias — tempo necessário para o algoritmo aprender e otimizar. Resultados rápidos existem, mas eu prefiro ser honesto: construímos algo sólido e duradouro.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="faqToggle(this)">
+          Você fala inglês? Consegue trabalhar com clientes americanos também?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Meu foco são empresários brasileiros nos EUA — por isso o atendimento é 100% em português, facilitando a comunicação. As campanhas, no entanto, podem rodar em inglês ou português dependendo do público que você quer atingir: só brasileiros, só americanos ou os dois.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="faqToggle(this)">
+          Como funciona a parceria? Você executa ou só consulta?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Executo do início ao fim. Não entrego um documento com sugestões e te deixo sozinho. Cuido da estratégia, criação dos anúncios, configuração das automações e acompanhamento dos resultados. Você foca no seu negócio — eu cuido do sistema de clientes chegando.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
+<section class="diag-section" id="diagnostico">
+  <div class="container" style="text-align:center;">
+    <div class="label">Diagnóstico gratuito</div>
+    <h2 class="sec-title rv">Descubra o nível digital<br><span class="tg">do seu negócio em 2 minutos</span></h2>
+    <p class="rv" style="color:var(--muted);font-size:15px;max-width:500px;margin:0 auto;line-height:1.75;">
+      Responda 6 perguntas rápidas e saiba exatamente onde seu negócio está travando — e o que fazer para mudar isso.
+    </p>
+
+    <div class="diag-wrap rv">
+
+      <div class="diag-prog-bar"><div class="diag-prog-fill" id="diagBar" style="width:0%"></div></div>
+      <div class="diag-meta">
+        <span id="diagLabel">Pergunta <strong>1</strong> de 6</span>
+        <span id="diagPct">0%</span>
+      </div>
+
+      <!-- Q1 -->
+      <div class="diag-step active" id="dq1">
+        <div class="diag-step-label">01 — Presença Online</div>
+        <div class="diag-q">Como está sua presença digital hoje?</div>
+        <div class="diag-opts">
+          <div class="diag-opt" onclick="diagPick(this,1,0)"><span>😶</span> Não tenho site nem redes sociais ativas <span class="diag-opt-pts">0 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,1,1)"><span>📱</span> Tenho Instagram mas posto raramente <span class="diag-opt-pts">1 pt</span></div>
+          <div class="diag-opt" onclick="diagPick(this,1,2)"><span>📊</span> Tenho redes ativas mas sem estratégia clara <span class="diag-opt-pts">2 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,1,3)"><span>🌐</span> Tenho site + redes com conteúdo regular <span class="diag-opt-pts">3 pts</span></div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="diag-step" id="dq2">
+        <div class="diag-step-label">02 — Aquisição de Clientes</div>
+        <div class="diag-q">Como você consegue novos clientes hoje?</div>
+        <div class="diag-opts">
+          <div class="diag-opt" onclick="diagPick(this,2,0)"><span>🤝</span> Só por indicação de amigos e clientes <span class="diag-opt-pts">0 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,2,1)"><span>📣</span> Indicação + alguns posts nas redes <span class="diag-opt-pts">1 pt</span></div>
+          <div class="diag-opt" onclick="diagPick(this,2,2)"><span>💸</span> Tenho anúncios mas sem resultado consistente <span class="diag-opt-pts">2 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,2,3)"><span>🎯</span> Tenho um sistema que traz clientes regularmente <span class="diag-opt-pts">3 pts</span></div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="diag-step" id="dq3">
+        <div class="diag-step-label">03 — Tráfego Pago</div>
+        <div class="diag-q">Você investe em anúncios pagos (Meta, Google…)?</div>
+        <div class="diag-opts">
+          <div class="diag-opt" onclick="diagPick(this,3,0)"><span>🚫</span> Nunca investi em anúncios <span class="diag-opt-pts">0 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,3,1)"><span>😕</span> Já tentei mas não tive resultado <span class="diag-opt-pts">1 pt</span></div>
+          <div class="diag-opt" onclick="diagPick(this,3,2)"><span>📉</span> Invisto sem acompanhamento profissional <span class="diag-opt-pts">2 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,3,3)"><span>📈</span> Tenho campanhas com ROI positivo <span class="diag-opt-pts">3 pts</span></div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="diag-step" id="dq4">
+        <div class="diag-step-label">04 — Automação</div>
+        <div class="diag-q">Como você atende e acompanha seus leads?</div>
+        <div class="diag-opts">
+          <div class="diag-opt" onclick="diagPick(this,4,0)"><span>📵</span> Respondo manualmente quando consigo <span class="diag-opt-pts">0 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,4,1)"><span>💬</span> Tenho resposta automática básica no WhatsApp <span class="diag-opt-pts">1 pt</span></div>
+          <div class="diag-opt" onclick="diagPick(this,4,2)"><span>⚙️</span> Tenho alguma automação mas é simples <span class="diag-opt-pts">2 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,4,3)"><span>🤖</span> Tenho fluxo completo de atendimento automatizado <span class="diag-opt-pts">3 pts</span></div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="diag-step" id="dq5">
+        <div class="diag-step-label">05 — Conversão</div>
+        <div class="diag-q">Você tem uma página que converte visitantes em contatos?</div>
+        <div class="diag-opts">
+          <div class="diag-opt" onclick="diagPick(this,5,0)"><span>❌</span> Não tenho site ou landing page <span class="diag-opt-pts">0 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,5,1)"><span>😐</span> Tenho site mas não gera contatos <span class="diag-opt-pts">1 pt</span></div>
+          <div class="diag-opt" onclick="diagPick(this,5,2)"><span>🔧</span> Tenho página mas precisa melhorar <span class="diag-opt-pts">2 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,5,3)"><span>✅</span> Tenho landing page otimizada para conversão <span class="diag-opt-pts">3 pts</span></div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="diag-step" id="dq6">
+        <div class="diag-step-label">06 — Métricas</div>
+        <div class="diag-q">Você sabe quanto custa adquirir um novo cliente?</div>
+        <div class="diag-opts">
+          <div class="diag-opt" onclick="diagPick(this,6,0)"><span>🙈</span> Não acompanho nenhuma métrica <span class="diag-opt-pts">0 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,6,1)"><span>🤔</span> Tenho uma ideia mas sem controle real <span class="diag-opt-pts">1 pt</span></div>
+          <div class="diag-opt" onclick="diagPick(this,6,2)"><span>📋</span> Acompanho algumas métricas básicas <span class="diag-opt-pts">2 pts</span></div>
+          <div class="diag-opt" onclick="diagPick(this,6,3)"><span>📊</span> Sei exatamente meu custo por cliente <span class="diag-opt-pts">3 pts</span></div>
+        </div>
+      </div>
+
+      <!-- RESULTADO -->
+      <div class="diag-result" id="diagResult">
+        <div class="diag-score-wrap">
+          <svg viewBox="0 0 140 140" width="140" height="140">
+            <circle class="diag-score-track" cx="70" cy="70" r="58"/>
+            <circle class="diag-score-fill" id="diagCircle" cx="70" cy="70" r="58" stroke-dasharray="364" stroke-dashoffset="364"/>
+          </svg>
+          <div class="diag-score-num">
+            <span class="diag-score-val tg" id="diagScoreVal">0</span>
+            <span class="diag-score-pts">/ 100</span>
+          </div>
+        </div>
+        <div class="diag-result-badge" id="diagBadge"></div>
+        <div class="diag-result-title" id="diagTitle"></div>
+        <div class="diag-result-desc"  id="diagDesc"></div>
+        <a href="#" id="diagWaBtn" target="_blank" rel="noopener" class="diag-result-wa">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.613l5.701-1.469A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.655-.523-5.168-1.432l-.361-.214-3.737.962.988-3.683-.231-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Quero entender como melhorar
+        </a>
+        <button class="diag-restart" onclick="diagRestart()">↺ Refazer o diagnóstico</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FORM -->
 <section class="form-section" id="contato">
   <div class="container">
@@ -1231,6 +1507,129 @@ function shakeEl(id) {
   el.animate([{transform:'translateX(-4px)'},{transform:'translateX(4px)'},{transform:'none'}],{duration:200,iterations:2});
   setTimeout(() => { el.style.borderColor=''; el.style.boxShadow=''; }, 1500);
 }
+// ── FAQ ──────────────────────────────────────────
+function faqToggle(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── DIAGNÓSTICO ──────────────────────────────────
+const diagScores = [0,0,0,0,0,0];
+const diagTotal  = 6;
+let   diagStep   = 1;
+
+const diagLevels = [
+  { min:0,  max:25, badge:'🚨 Ponto de Partida', color:'#FF3131',
+    title: 'Seu negócio ainda não usa o digital para crescer',
+    desc:  'A boa notícia: você tem muito espaço para crescer rapidamente. Com a estrutura certa, os primeiros resultados aparecem em poucas semanas. Vamos conversar — eu te mostro por onde começar.' },
+  { min:26, max:50, badge:'⚠️ Em Construção', color:'#FF8C00',
+    title: 'Você tem base, mas está perdendo clientes todo dia',
+    desc:  'Você já deu os primeiros passos, mas sem sistema estruturado você depende de sorte. Cada dia sem estratégia é um cliente que foi para o concorrente. Posso te mostrar o que está faltando.' },
+  { min:51, max:75, badge:'📈 No Caminho Certo', color:'#FFB800',
+    title: 'Você está progredindo — mas pode acelerar muito mais',
+    desc:  'Seu negócio já tem base digital, mas ainda há gaps importantes que limitam seu crescimento. Com ajustes cirúrgicos na estratégia, você pode dobrar seus resultados nos próximos 60 dias.' },
+  { min:76, max:100, badge:'🚀 Pronto para Escalar', color:'#00C853',
+    title: 'Você tem sistema — agora é hora de escalar',
+    desc:  'Parabéns! Você já estruturou bem seu negócio digital. O próximo passo é escalar o que funciona com mais investimento, automação avançada e estratégias de retenção. Vamos conversar sobre o próximo nível.' }
+];
+
+function diagSetProgress(step) {
+  const pct = Math.round(((step-1) / diagTotal) * 100);
+  document.getElementById('diagBar').style.width   = pct + '%';
+  document.getElementById('diagLabel').innerHTML   = `Pergunta <strong>${step}</strong> de ${diagTotal}`;
+  document.getElementById('diagPct').textContent   = pct + '%';
+}
+
+function diagPick(el, step, pts) {
+  el.closest('.diag-opts').querySelectorAll('.diag-opt').forEach(o => o.classList.remove('picked'));
+  el.classList.add('picked');
+  diagScores[step - 1] = pts;
+
+  setTimeout(() => {
+    if (step < diagTotal) {
+      document.getElementById('dq' + step).classList.remove('active');
+      document.getElementById('dq' + (step + 1)).classList.add('active');
+      diagStep = step + 1;
+      diagSetProgress(step + 1);
+    } else {
+      diagShowResult();
+    }
+  }, 380);
+}
+
+function diagShowResult() {
+  // hide steps
+  for (let i = 1; i <= diagTotal; i++) {
+    const el = document.getElementById('dq' + i);
+    if (el) el.classList.remove('active');
+  }
+  document.getElementById('diagBar').style.width = '100%';
+  document.getElementById('diagLabel').innerHTML = `Diagnóstico <strong>concluído</strong>`;
+  document.getElementById('diagPct').textContent = '100%';
+
+  const raw   = diagScores.reduce((a,b) => a+b, 0); // 0-18
+  const score = Math.round((raw / 18) * 100);
+  const level = diagLevels.find(l => score >= l.min && score <= l.max) || diagLevels[0];
+
+  // Animate circle
+  const circ   = document.getElementById('diagCircle');
+  const circum = 364;
+  circ.style.stroke          = level.color;
+  circ.style.strokeDashoffset = circum;
+  setTimeout(() => {
+    circ.style.strokeDashoffset = circum - (circum * score / 100);
+  }, 100);
+
+  // Animate score number
+  const valEl = document.getElementById('diagScoreVal');
+  let cur = 0;
+  const step = Math.ceil(score / 40);
+  const timer = setInterval(() => {
+    cur = Math.min(cur + step, score);
+    valEl.textContent = cur;
+    if (cur >= score) clearInterval(timer);
+  }, 30);
+
+  // Badge
+  const badge = document.getElementById('diagBadge');
+  badge.textContent = level.badge;
+  badge.style.background = level.color + '18';
+  badge.style.border = `1px solid ${level.color}40`;
+  badge.style.color  = level.color;
+
+  document.getElementById('diagTitle').textContent = level.title;
+  document.getElementById('diagDesc').textContent  = level.desc;
+
+  // WhatsApp link
+  const msg = encodeURIComponent(
+`Olá Anderson! Fiz o diagnóstico digital no seu site 🇧🇷🇺🇸
+
+Minha pontuação foi *${score}/100* — nível: ${level.badge}
+
+Quero entender como melhorar meu negócio nos EUA!`
+  );
+  document.getElementById('diagWaBtn').href = `https://wa.me/5581985981192?text=${msg}`;
+
+  document.getElementById('diagResult').classList.add('show');
+}
+
+function diagRestart() {
+  diagScores.fill(0);
+  diagStep = 1;
+  document.getElementById('diagResult').classList.remove('show');
+  document.querySelectorAll('.diag-opt').forEach(o => o.classList.remove('picked'));
+  for (let i = 1; i <= diagTotal; i++) {
+    const el = document.getElementById('dq' + i);
+    if (el) el.classList.remove('active');
+  }
+  document.getElementById('dq1').classList.add('active');
+  document.getElementById('diagBar').style.width = '0%';
+  document.getElementById('diagLabel').innerHTML = `Pergunta <strong>1</strong> de ${diagTotal}`;
+  document.getElementById('diagPct').textContent = '0%';
+}
+
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.1 });
