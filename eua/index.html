@@ -617,7 +617,38 @@
     .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
 
     /* ── Responsive ── */
+    /* ── Depoimentos ── */
+    .dep-sec { background: var(--navy-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .dep-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .dep-card {
+      background: var(--navy-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 28px;
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative; overflow: hidden;
+      transition: var(--t);
+    }
+    .dep-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); }
+    .dep-card:hover { border-color: var(--border-g); transform: translateY(-4px); box-shadow: 0 8px 32px rgba(255,184,0,0.08); }
+    .dep-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; }
+    .dep-text  { font-size: 14px; color: var(--muted); line-height: 1.75; font-style: italic; flex: 1; }
+    .dep-author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .dep-ava {
+      width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+      background: var(--grad);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h); font-size: 14px; font-weight: 800; color: #fff;
+    }
+    .dep-name { font-family: var(--font-h); font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .dep-role { font-size: 12px; color: var(--subtle); }
+
     @media (max-width: 960px) {
+      .dep-grid    { grid-template-columns: repeat(2, 1fr); }
       .hero-inner  { grid-template-columns: 1fr; }
       .hero-photo-wrap { display: none; }
       .sol-grid    { grid-template-columns: 1fr; max-width: 480px; margin: 40px auto 0; }
@@ -642,6 +673,7 @@
       .nav-cta { display: none; }
       .form-wrap { padding: 24px 18px; }
       .form-checks { display: none; } /* simplifica no mobile */
+      .dep-grid    { grid-template-columns: 1fr; }
       .res-banner  { text-align: center; }
       .res-banner-num { font-size: 48px; }
       .id-flags { font-size: 60px; }
@@ -908,6 +940,93 @@
         <h4>Retorno médio sobre investimento em anúncios</h4>
         <p>Campanha do zero com criativo, segmentação e landing page dedicada. Resultado alcançado em 45 dias de operação.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="dep-sec">
+  <div class="container">
+    <div class="label">Depoimentos</div>
+    <h2 class="sec-title rv">O que dizem os empresários<br><span class="tg">que já saíram da indicação</span></h2>
+    <p class="rv" style="color:var(--muted);font-size:15px;max-width:560px;line-height:1.75;margin-bottom:50px;">
+      Brasileiros que, como você, construíram seu negócio nos EUA na raça — e decidiram parar de depender do boca a boca.
+    </p>
+
+    <div class="dep-grid">
+
+      <div class="dep-card rv">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Dependia 100% de indicação há 3 anos. Com a estratégia do Anderson, hoje recebo em média 8 contatos novos por semana — sem pedir indicação pra ninguém. Meu faturamento cresceu 40% em 2 meses."</p>
+        <div class="dep-author">
+          <div class="dep-ava">MA</div>
+          <div>
+            <div class="dep-name">Marcos Alves</div>
+            <div class="dep-role">Construção civil · Boston, MA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card rv d1">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Tinha Instagram mas ninguém novo chegava. Em 6 semanas com tráfego pago já tinha lotado minha agenda por 3 semanas seguidas. Melhor investimento que fiz no meu negócio aqui nos EUA."</p>
+        <div class="dep-author">
+          <div class="dep-ava">CR</div>
+          <div>
+            <div class="dep-name">Camila Rodrigues</div>
+            <div class="dep-role">Salão de beleza · Orlando, FL</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card rv d2">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Meu restaurante vivia de clientes da comunidade brasileira. Hoje recebo americanos, turistas e brasileiros novos toda semana. O sistema que ele montou trabalha por mim mesmo quando estou na cozinha."</p>
+        <div class="dep-author">
+          <div class="dep-ava">RS</div>
+          <div>
+            <div class="dep-name">Rafael Santos</div>
+            <div class="dep-role">Restaurante · Miami, FL</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card rv d1">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Estava travada nos mesmos clientes há 2 anos. Anderson estruturou tudo e em 30 dias já tinha 5 contratos novos de limpeza. Indicação ainda vem, mas não dependo mais dela pra pagar as contas."</p>
+        <div class="dep-author">
+          <div class="dep-ava">JC</div>
+          <div>
+            <div class="dep-name">Juliana Costa</div>
+            <div class="dep-role">Serviços de limpeza · Newark, NJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card rv d2">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Nunca tinha investido em marketing porque achava que era caro e complicado. O Anderson simplificou tudo e o retorno veio rápido. Hoje tenho previsibilidade — sei quanto vou faturar no mês."</p>
+        <div class="dep-author">
+          <div class="dep-ava">PT</div>
+          <div>
+            <div class="dep-name">Paulo Teixeira</div>
+            <div class="dep-role">Clínica estética · Framingham, MA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card rv d3">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Minha empresa de mudanças dependia de grupos do Facebook e indicações. Com automação no WhatsApp e anúncios certeiros, triplicamos o volume de orçamentos em 45 dias. Valeu cada centavo."</p>
+        <div class="dep-author">
+          <div class="dep-ava">FM</div>
+          <div>
+            <div class="dep-name">Felipe Moura</div>
+            <div class="dep-role">Empresa de mudanças · Houston, TX</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
