@@ -170,7 +170,7 @@
 
     /* ── Nav ── */
     nav {
-      position: fixed; top: 40px; left: 0; right: 0; z-index: 1000;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       padding: 14px 0;
       background: rgba(6,9,15,0.92);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
@@ -633,15 +633,38 @@
     @media (max-width: 600px) {
       section { padding: 64px 0; }
       .container { padding: 0 18px; }
-      .hero { padding: 120px 0 60px; }
-      .hero-title { letter-spacing: -0.5px; }
+      .hero { padding: 130px 0 60px; }
+      .hero-title { letter-spacing: -0.5px; font-size: 34px; }
+      .hero-sub { font-size: 15px; }
       .hero-ctas { flex-direction: column; }
       .btn-p { justify-content: center; width: 100%; padding: 16px 20px; }
       .hero-proof { display: none; }
       .nav-cta { display: none; }
       .form-wrap { padding: 24px 18px; }
+      .form-checks { display: none; } /* simplifica no mobile */
+      .res-banner  { text-align: center; }
       .res-banner-num { font-size: 48px; }
       .id-flags { font-size: 60px; }
+      .hero-location { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
+      .hero-loc-title { font-size: 13px; }
+      .sobre-links { flex-direction: column; }
+      .sobre-link { justify-content: center; }
+      /* Topbar mais compacto */
+      .topbar { padding: 8px 40px 8px 16px; }
+      .topbar-text { font-size: 12px; }
+      .topbar-text .tb-long { display: none; }
+      /* WhatsApp float — safe area iOS */
+      .wa-float { bottom: calc(20px + env(safe-area-inset-bottom)); right: 20px; width: 52px; height: 52px; }
+      .wa-float svg { width: 24px; height: 24px; }
+    }
+
+    /* Phones pequenos ≤390px */
+    @media (max-width: 390px) {
+      .hero-title { font-size: 28px; }
+      .sec-title  { font-size: 24px; }
+      .container  { padding: 0 14px; }
+      .msf-q      { font-size: 16px; }
+      .hero-location { display: none; } /* evita overflow em telas muito pequenas */
     }
   </style>
 </head>
@@ -652,7 +675,7 @@
   <div class="topbar-pulse"></div>
   <div class="topbar-flags">🇧🇷🇺🇸</div>
   <div class="topbar-text">
-    <strong>Empresário brasileiro nos EUA?</strong> &nbsp;Esta página foi feita exclusivamente para você.
+    <strong>Empresário brasileiro nos EUA?</strong><span class="tb-long"> &nbsp;Esta página foi feita para você.</span>
   </div>
   <button class="topbar-close" onclick="closeTopbar()" aria-label="Fechar">×</button>
 </div>
@@ -1095,12 +1118,25 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
 // ── Topbar ───────────────────────────────────────
+function setNavTop() {
+  const bar = document.getElementById('topbar');
+  const nav = document.getElementById('mainNav');
+  if (!bar || !nav) return;
+  if (bar.classList.contains('hidden')) { nav.style.top = '0'; return; }
+  nav.style.top = bar.offsetHeight + 'px';
+}
 function closeTopbar() {
   const bar = document.getElementById('topbar');
   const nav = document.getElementById('mainNav');
   bar.classList.add('hidden');
-  nav.classList.add('no-topbar');
+  nav.style.top = '0';
 }
+// set on load + resize
+window.addEventListener('load', setNavTop);
+window.addEventListener('resize', setNavTop);
+// remove fixed top from CSS (now JS-controlled)
+document.getElementById('mainNav').style.top = '0'; // initial safe fallback
+setTimeout(setNavTop, 700); // after topbar animates in
 
 // ── Typewriter ───────────────────────────────────
 (function () {
