@@ -1766,6 +1766,18 @@
       .container { padding: 0 14px; }
     }
   </style>
+
+  <!-- Meta Pixel — cole seu ID real no lugar de SEU_PIXEL_ID -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','SEU_PIXEL_ID');
+  fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -2256,6 +2268,26 @@
      JAVASCRIPT
 ============================================= -->
 <script>
+// ─── UTM TRACKING ───────────────────────────────
+const _utm = (function() {
+  const p = new URLSearchParams(window.location.search);
+  if (p.get('utm_source')) {
+    sessionStorage.setItem('_us', p.get('utm_source'));
+    sessionStorage.setItem('_um', p.get('utm_medium') || 'pago');
+    sessionStorage.setItem('_uc', p.get('utm_campaign') || '');
+  }
+  return {
+    source:   sessionStorage.getItem('_us') || 'organico',
+    medium:   sessionStorage.getItem('_um') || 'direto',
+    campaign: sessionStorage.getItem('_uc') || '',
+  };
+})();
+function _utmTag() {
+  let s = `\n\n📊 Origem: ${_utm.source} | ${_utm.medium}`;
+  if (_utm.campaign) s += ` | campanha: ${_utm.campaign}`;
+  return s;
+}
+
 // ─── NAV ────────────────────────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -2464,9 +2496,10 @@ function msfFinish() {
 *Maior desafio:* ${msfData.desafio}
 *Preciso de:* ${msfData.servico}
 
-Quero entender como você pode me ajudar!`
+Quero entender como você pode me ajudar!${_utmTag()}`
   );
   document.getElementById('msfWaBtn').href = `https://wa.me/5581985981192?text=${msg}`;
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead');
 
   const success = document.getElementById('msfSuccess');
   success.classList.add('show');
