@@ -101,14 +101,27 @@
     .hero-check { display:flex; align-items:flex-start; gap:8px; font-size:13px; color:rgba(255,255,255,.75); }
     .hero-check::before { content:'✔'; color:var(--pink); font-size:11px; flex-shrink:0; margin-top:3px; }
 
+    @keyframes shimmer-sweep {
+      0%   { background-position: -250% center; }
+      100% { background-position:  250% center; }
+    }
     .btn-invest {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 13px; font-weight: 500; color: var(--pink);
       border: 1px solid rgba(212,82,122,.35); padding: 11px 22px;
       border-radius: 2px; text-decoration: none; margin-bottom: 28px;
-      transition: all .25s; width: fit-content;
+      width: fit-content; position: relative; overflow: hidden;
+      background: linear-gradient(105deg,
+        transparent 40%,
+        rgba(212,82,122,.18) 50%,
+        transparent 60%
+      ) no-repeat;
+      background-size: 250% 100%;
+      background-position: -250% center;
+      animation: shimmer-sweep 2.4s ease-in-out infinite;
+      transition: border-color .25s;
     }
-    .btn-invest:hover { background: rgba(212,82,122,.08); border-color: var(--pink); }
+    .btn-invest:hover { border-color: var(--pink); }
 
     .hero-footer {
       font-size: 11px; color: rgba(255,255,255,.25); letter-spacing: .06em;
