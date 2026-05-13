@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Proposta WePink — Anderson Seabra</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #08060A;
+      --bg2:      #0F0B12;
+      --bg3:      #130E16;
+      --pink:     #D4527A;
+      --pink2:    #E8709A;
+      --gold:     #C8A96E;
+      --grad:     linear-gradient(135deg, #D4527A 0%, #C8A96E 100%);
+      --grad-text: linear-gradient(90deg, #D4527A, #C8A96E);
+      --text:     #FFFFFF;
+      --muted:    rgba(255,255,255,0.55);
+      --subtle:   rgba(255,255,255,0.12);
+      --border:   rgba(212,82,122,0.18);
+      --border-g: rgba(200,169,110,0.15);
+      --font-d:   'Cormorant Garamond', Georgia, serif;
+      --font-b:   'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ─────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    .tg {
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--pink);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .tag::before { content:''; display:block; width:28px; height:1px; background:var(--pink); }
+
+    .check-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .check-list li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.78);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .check-list li::before {
+      content: '✔';
+      color: var(--pink);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    hr.div { border:none; border-top:1px solid rgba(255,255,255,0.06); margin:0; }
+
+    /* ── HERO ──────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: brightness(0.7) saturate(0.65);
+    }
+    .hero-photo::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to right, rgba(8,6,10,0) 40%, var(--bg) 100%),
+                  linear-gradient(to top, var(--bg) 0%, transparent 30%);
+    }
+
+    /* Pink glow bottom of photo */
+    .hero-photo::before {
+      content:'';
+      position:absolute;
+      bottom:-80px;
+      left:-80px;
+      width:400px;
+      height:400px;
+      background: radial-gradient(circle, rgba(212,82,122,0.25) 0%, transparent 70%);
+      z-index:1;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px 80px 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pink);
+      background: rgba(212,82,122,0.1);
+      border: 1px solid rgba(212,82,122,0.25);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+      width: fit-content;
+    }
+    .hero-eyebrow span { width:6px; height:6px; border-radius:50%; background:var(--pink); animation: pulse 2s infinite; }
+
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(36px, 4.5vw, 60px);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .hero-h1 em { font-style:italic; color:var(--pink); }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 400px;
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 48px;
+    }
+    .pill {
+      border: 1px solid var(--border);
+      padding: 5px 13px;
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-radius: 2px;
+    }
+
+    .hero-checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+      margin-bottom: 48px;
+    }
+    .hero-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+    }
+    .hero-check::before { content:'✔'; color:var(--pink); font-size:11px; flex-shrink:0; margin-top:3px; }
+
+    .hero-footer {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.06em;
+      border-top: 1px solid rgba(212,82,122,0.15);
+      padding-top: 20px;
+    }
+
+    /* ── PROPOSTA ──────────────────────────────── */
+    .prop-sec { padding: 120px 0; background: var(--bg2); }
+
+    .prop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .prop-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .prop-body p { font-size: 15px; color: var(--muted); margin-bottom: 16px; max-width: 520px; }
+
+    .prop-right { padding-top: 20px; }
+    .prop-right .check-list li { font-size: 15px; }
+
+    /* ── DIFERENCIAL ───────────────────────────── */
+    .dif-sec { padding: 100px 0; }
+
+    .dif-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .dif-card {
+      background: var(--bg);
+      padding: 56px 48px;
+    }
+    .dif-card.dark { background: var(--bg2); }
+
+    .dif-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,82,122,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 28px;
+    }
+
+    .dif-card h3 {
+      font-family: var(--font-d);
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .dif-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    .dif-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .dif-tag {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      background: rgba(212,82,122,0.08);
+      border: 1px solid rgba(212,82,122,0.2);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    /* ── PILARES ───────────────────────────────── */
+    .pilares-sec { padding: 120px 0; background: var(--bg2); }
+
+    .sec-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 60px;
+    }
+    .sec-head h2 {
+      font-family: var(--font-d);
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.15;
+    }
+    .sec-count {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-bottom: 4px;
+    }
+
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .pilar {
+      background: var(--bg2);
+      padding: 48px 40px;
+      transition: background 0.3s;
+    }
+    .pilar:hover { background: var(--bg3); }
+
+    .pilar-num {
+      font-family: var(--font-d);
+      font-size: 52px;
+      font-weight: 300;
+      color: rgba(212,82,122,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .pilar h3 {
+      font-family: var(--font-d);
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .pilar p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+    /* ── GESTÃO ────────────────────────────────── */
+    .gestao-sec { padding: 120px 0; }
+
+    .gestao-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .gestao-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(32px, 3.5vw, 46px);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .gestao-sub { font-size: 14px; color: var(--muted); margin-bottom: 40px; max-width: 440px; }
+
+    .check-cols {
+      columns: 2;
+      column-gap: 24px;
+    }
+    .check-cols .check-list li { break-inside: avoid; margin-bottom: 10px; }
+
+    /* ── FUNIL ─────────────────────────────────── */
+    .funil-sec { padding: 120px 0; background: var(--bg2); }
+
+    .funil-steps {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 0;
+      margin-top: 60px;
+    }
+
+    .funil-step {
+      padding: 40px 32px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+    }
+    .funil-step:last-child { border-right: none; }
+
+    .funil-step::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .funil-step:hover::before { opacity: 1; }
+
+    .funil-phase {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 8px;
+    }
+    .funil-num {
+      font-family: var(--font-d);
+      font-size: 40px;
+      font-weight: 300;
+      color: rgba(212,82,122,0.25);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .funil-step h3 {
+      font-family: var(--font-d);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .funil-step p { font-size: 12px; color: var(--muted); margin-bottom: 16px; line-height: 1.7; }
+    .funil-step ul { list-style: none; }
+    .funil-step ul li {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      gap: 8px;
+    }
+    .funil-step ul li::before { content:'·'; color:var(--pink); flex-shrink:0; }
+
+    /* ── SOBRE ANDERSON ────────────────────────── */
+    .sobre-sec { padding: 120px 0; }
+
+    .sobre-inner {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .sobre-photo-wrap {
+      position: relative;
+    }
+    .sobre-photo-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 2px;
+      filter: brightness(0.85) saturate(0.7);
+    }
+    .sobre-photo-wrap::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      border-radius:2px;
+      background: linear-gradient(to top, rgba(8,6,10,0.6) 0%, transparent 60%);
+    }
+
+    .sobre-stats {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      border: 1px solid var(--border);
+      margin-top: 16px;
+    }
+    .sobre-stat {
+      padding: 16px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .sobre-stat:last-child { border-right:none; }
+    .sobre-stat-val {
+      font-family: var(--font-d);
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--pink);
+    }
+    .sobre-stat-lbl {
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .sobre-body .tag { margin-bottom: 16px; }
+    .sobre-body h2 {
+      font-family: var(--font-d);
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .sobre-body p { font-size: 14px; color: var(--muted); margin-bottom: 16px; max-width: 560px; }
+    .sobre-body .quote {
+      font-family: var(--font-d);
+      font-style: italic;
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      border-left: 2px solid var(--pink);
+      padding: 20px 24px;
+      background: rgba(212,82,122,0.04);
+      margin-top: 28px;
+      line-height: 1.6;
+    }
+
+    /* ── INVESTIMENTO ──────────────────────────── */
+    .invest-sec { padding: 120px 0; background: var(--bg2); }
+
+    .invest-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .price-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 56px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .price-card::before {
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;
+      height:2px;
+      background:var(--grad);
+    }
+
+    .price-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 16px;
+    }
+    .price-big {
+      font-family: var(--font-d);
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .price-big sup { font-size: 24px; vertical-align: top; margin-top: 14px; display: inline-block; }
+    .price-per { font-size: 13px; color: var(--muted); margin-bottom: 32px; }
+
+    .price-card h3 {
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .midia-box {
+      background: rgba(200,169,110,0.06);
+      border: 1px solid var(--border-g);
+      padding: 32px;
+      margin-top: 24px;
+      border-radius: 2px;
+    }
+    .midia-box .midia-label {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .midia-box .midia-val {
+      font-family: var(--font-d);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .midia-box p { font-size: 12px; color: var(--muted); }
+
+    /* ── PRÓXIMOS PASSOS ───────────────────────── */
+    .steps-sec { padding: 100px 0; }
+
+    .steps-inner {
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .next-step {
+      padding: 40px 28px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+    .next-step:last-child { border-right:none; }
+    .next-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-d);
+      font-size: 16px;
+      color: var(--pink);
+      margin: 0 auto 16px;
+    }
+    .next-step h4 {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .next-step p { font-size: 11px; color: var(--muted); }
+
+    /* ── CTA ───────────────────────────────────── */
+    .cta-sec {
+      padding: 120px 0;
+      background: var(--bg3);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-sec::before {
+      content:'';
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:600px; height:600px;
+      background: radial-gradient(circle, rgba(212,82,122,0.12) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    .cta-sec h2 {
+      font-family: var(--font-d);
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .cta-sec h2 em { font-style:italic; color:var(--pink); }
+
+    .cta-sec p {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 440px;
+      margin: 0 auto 48px;
+      position: relative;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--grad);
+      color: #fff;
+      font-family: var(--font-b);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .btn-wa:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(212,82,122,0.3); }
+
+    .cta-footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.08em;
+      position: relative;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { height: 60vw; }
+      .hero-photo::after { background: linear-gradient(to bottom, transparent 30%, var(--bg) 100%); }
+      .hero-content { padding: 40px 24px 60px; }
+      .hero-checks { grid-template-columns: 1fr; }
+      .prop-grid, .dif-inner, .gestao-grid, .sobre-inner, .invest-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .pilares-grid { grid-template-columns: 1fr; }
+      .funil-steps { grid-template-columns: 1fr 1fr; }
+      .funil-step { border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .steps-inner { grid-template-columns: 1fr; }
+      .next-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .next-step:last-child { border-bottom: none; }
+      .check-cols { columns: 1; }
+      .sec-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .container { padding: 0 20px; }
+    }
+    @media (max-width: 560px) {
+      .funil-steps { grid-template-columns: 1fr; }
+      .sobre-stats { grid-template-columns: 1fr; }
+      .sobre-stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .sobre-stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-photo">
+    <img src="/public/foto inicial.jpg" alt="Anderson Seabra">
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span></span> Proposta Exclusiva · WePink</div>
+
+    <h1 class="hero-h1">
+      Aceleração estratégica<br>
+      de vendas para<br>
+      <em>franquias WePink.</em>
+    </h1>
+
+    <p class="hero-sub">
+      Estratégia premium de Meta Ads focada em posicionamento local, desejo, conversão e escala previsível para sua unidade.
+    </p>
+
+    <div class="hero-checks">
+      <div class="hero-check">Captação de clientes locais</div>
+      <div class="hero-check">Conversão via WhatsApp e loja</div>
+      <div class="hero-check">Fortalecimento da marca na cidade</div>
+      <div class="hero-check">Escala previsível via Meta Ads</div>
+      <div class="hero-check">Funis gamificados de conversão</div>
+      <div class="hero-check">Estratégias americanas de aquisição</div>
+    </div>
+
+    <div class="hero-pills">
+      <span class="pill">Tráfego Pago</span>
+      <span class="pill">Funis</span>
+      <span class="pill">Criativos</span>
+      <span class="pill">Lançamentos</span>
+    </div>
+
+    <div class="hero-footer">
+      Anderson Seabra &nbsp;·&nbsp; Proposta Confidencial &nbsp;·&nbsp; 2026
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ════════════════════════════════════
+     A PROPOSTA
+════════════════════════════════════ -->
+<section class="prop-sec">
+  <div class="container">
+    <div class="prop-grid">
+      <div class="prop-body">
+        <div class="tag">A Proposta</div>
+        <h2 class="prop-h2">Transformamos atenção em <span class="tg">desejo — e desejo em vendas.</span></h2>
+        <p>O objetivo é posicionar sua unidade WePink como referência na cidade através de campanhas altamente estratégicas no Instagram e Facebook.</p>
+        <p>Mais do que impulsionar anúncios, construímos uma estrutura completa de aquisição de clientes — que transforma presença digital em movimento real dentro da loja e no WhatsApp.</p>
+      </div>
+      <div class="prop-right">
+        <ul class="check-list" style="font-size:15px">
+          <li>Posicionamento premium na região</li>
+          <li>Criativos que geram desejo real</li>
+          <li>Campanhas locais inteligentes</li>
+          <li>Estratégias avançadas de conversão</li>
+          <li>Funis de relacionamento e recompra</li>
+          <li>Escala previsível mês a mês</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ════════════════════════════════════
+     DIFERENCIAL
+════════════════════════════════════ -->
+<section class="dif-sec">
+  <div class="container">
+    <div class="tag">Diferencial Estratégico</div>
+    <div class="dif-inner">
+      <div class="dif-card">
+        <div class="dif-icon">🎮</div>
+        <h3>Funis <span class="tg">Gamificados</span></h3>
+        <p>Estruturas que criam experiências mais envolventes, aumentam o tempo de interação com a marca e elevam o valor percebido da sua unidade — colocando sua franquia à frente da concorrência local.</p>
+        <div class="dif-tags">
+          <span class="dif-tag">Engajamento</span>
+          <span class="dif-tag">Retenção</span>
+          <span class="dif-tag">Fidelização</span>
+          <span class="dif-tag">Recompra</span>
+        </div>
+      </div>
+      <div class="dif-card dark">
+        <div class="dif-icon">🇺🇸</div>
+        <h3>Metodologias <span class="tg">Americanas</span></h3>
+        <p>Estratégias modernas de aquisição e retenção inspiradas no mercado americano. A ideia não é apenas vender produtos — é construir uma experiência digital que gera desejo, relacionamento e recorrência.</p>
+        <div class="dif-tags">
+          <span class="dif-tag">Aquisição</span>
+          <span class="dif-tag">Retenção</span>
+          <span class="dif-tag">Conversão</span>
+          <span class="dif-tag">Escala</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ════════════════════════════════════
+     4 PILARES
+════════════════════════════════════ -->
+<section class="pilares-sec">
+  <div class="container">
+    <div class="tag">Estratégia</div>
+    <div class="sec-head">
+      <h2>Os 4 pilares<br>da estratégia</h2>
+      <span class="sec-count">4 Pilares</span>
+    </div>
+
+    <div class="pilares-grid">
+      <div class="pilar">
+        <div class="pilar-num">01</div>
+        <h3>Tráfego Pago <span class="tg">Estratégico</span></h3>
+        <p>Campanhas estruturadas para atrair mulheres com alto potencial de compra na região da franquia. Segmentação precisa, orçamento inteligente, escala controlada.</p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">02</div>
+        <h3>Criativos que <span class="tg">geram desejo</span></h3>
+        <p>Anúncios que valorizam autoestima, beleza, lifestyle e exclusividade. Desenvolvidos para parar o scroll e despertar compra imediata — alinhados à identidade da WePink.</p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">03</div>
+        <h3>Posicionamento <span class="tg">local forte</span></h3>
+        <p>Sua unidade deixa de ser mais uma loja e passa a se tornar referência feminina na cidade. Presença de marca consistente que cria autoridade regional.</p>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">04</div>
+        <h3>Conversão e <span class="tg">relacionamento</span></h3>
+        <p>Campanhas estruturadas para WhatsApp, loja física, remarketing, fidelização, recompra e funis gamificados. Cliente que volta — e indica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ════════════════════════════════════
+     GESTÃO COMPLETA
+════════════════════════════════════ -->
+<section class="gestao-sec">
+  <div class="container">
+    <div class="gestao-grid">
+      <div>
+        <div class="tag">Entregáveis</div>
+        <h2 class="gestao-h2">Gestão estratégica <span class="tg">completa</span> de Meta Ads</h2>
+        <p class="gestao-sub">Tudo que sua unidade precisa para competir de verdade no digital — gerenciado ativamente, não no piloto automático.</p>
+      </div>
+      <div>
+        <div class="check-cols">
+          <ul class="check-list">
+            <li>Planejamento mensal de campanhas</li>
+            <li>Gestão diária dos anúncios</li>
+            <li>Campanhas para WhatsApp</li>
+            <li>Campanhas para loja física</li>
+            <li>Segmentação estratégica local</li>
+            <li>Públicos femininos qualificados</li>
+            <li>Remarketing inteligente</li>
+            <li>Testes A/B de criativos</li>
+            <li>Otimização diária</li>
+            <li>Relatórios estratégicos</li>
+            <li>Estrutura de funil de vendas</li>
+            <li>Implementação de funis gamificados</li>
+            <li>Estratégias de retenção e recompra</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ════════════════════════════════════
+     FUNIL 4 FASES
+════════════════════════════════════ -->
+<section class="funil-sec">
+  <div class="container">
+    <div class="tag">Metodologia</div>
+    <div class="sec-head">
+      <h2>Funil de vendas<br><span class="tg">inteligente</span></h2>
+      <span class="sec-count">4 Fases</span>
+    </div>
+
+    <div class="funil-steps">
+      <div class="funil-step">
+        <div class="funil-phase">Fase 01</div>
+        <div class="funil-num">01</div>
+        <h3>Atração</h3>
+        <p>Gerar reconhecimento local e atrair novas clientes da região.</p>
+        <ul>
+          <li>Campanhas de alcance</li>
+          <li>Reconhecimento de marca</li>
+          <li>Criativos de impacto</li>
+          <li>Conteúdo estratégico</li>
+        </ul>
+      </div>
+      <div class="funil-step">
+        <div class="funil-phase">Fase 02</div>
+        <div class="funil-num">02</div>
+        <h3>Desejo</h3>
+        <p>Criar conexão emocional e aumentar o desejo pelos produtos WePink.</p>
+        <ul>
+          <li>Provas sociais</li>
+          <li>Conteúdo aspiracional</li>
+          <li>Criativos premium</li>
+          <li>Estratégias emocionais</li>
+        </ul>
+      </div>
+      <div class="funil-step">
+        <div class="funil-phase">Fase 03</div>
+        <div class="funil-num">03</div>
+        <h3>Conversão</h3>
+        <p>Transformar interesse em vendas concretas.</p>
+        <ul>
+          <li>WhatsApp direto</li>
+          <li>Remarketing</li>
+          <li>Gatilhos mentais</li>
+          <li>Ofertas estratégicas</li>
+        </ul>
+      </div>
+      <div class="funil-step">
+        <div class="funil-phase">Fase 04</div>
+        <div class="funil-num">04</div>
+        <h3>Escala</h3>
+        <p>Aumentar faturamento com previsibilidade e controle.</p>
+        <ul>
+          <li>Otimização contínua</li>
+          <li>Escala das vencedoras</li>
+          <li>Fidelização</li>
+          <li>Expansão de públicos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ════════════════════════════════════
+     SOBRE ANDERSON
+════════════════════════════════════ -->
+<section class="sobre-sec">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="sobre-photo-wrap">
+        <img src="/public/foto inicial.jpg" alt="Anderson Seabra">
+        <div class="sobre-stats">
+          <div class="sobre-stat">
+            <div class="sobre-stat-val">R$500k+</div>
+            <div class="sobre-stat-lbl">Em anúncios</div>
+          </div>
+          <div class="sobre-stat">
+            <div class="sobre-stat-val">20+</div>
+            <div class="sobre-stat-lbl">Mentoras MSA</div>
+          </div>
+          <div class="sobre-stat">
+            <div class="sobre-stat-val">5 anos</div>
+            <div class="sobre-stat-lbl">No mercado</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sobre-body">
+        <div class="tag">Quem sou</div>
+        <h2>Estratégia real,<br><span class="tg">construída na prática.</span></h2>
+        <p>Estou há mais de 5 anos no mercado digital validando ofertas, estruturando funis e escalando operações com tráfego pago. Operei mais de R$500.000 em anúncios e aprendi, na prática, onde o dinheiro vai embora — e onde ele multiplica.</p>
+        <p>Já gerenciei mais de 20 top afiliadas e mentoras do MSA. Conheço esse ecossistema por dentro — sei o que funciona para marcas femininas premium, o que os números escondem e onde estão as maiores alavancas de crescimento.</p>
+        <p>O problema quase nunca é o tráfego. É falta de visão, posicionamento e execução estratégica.</p>
+        <div class="quote">
+          "Você tem autoridade, audiência e produto. O que precisa agora é da estrutura certa para escalar sem depender de achismo ou de queimar verba."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ════════════════════════════════════
+     INVESTIMENTO
+════════════════════════════════════ -->
+<section class="invest-sec">
+  <div class="container">
+    <div class="tag">Investimento</div>
+    <div class="sec-head">
+      <h2>Gestão estratégica<br><span class="tg">completa</span></h2>
+      <span class="sec-count">Honorário Mensal</span>
+    </div>
+
+    <div class="invest-wrap">
+      <div class="price-card">
+        <div class="price-label">Gestão estratégica de tráfego + funis gamificados</div>
+        <div class="price-big"><sup>R$</sup>1.350</div>
+        <div class="price-per">/mês</div>
+        <h3>Incluso na gestão:</h3>
+        <ul class="check-list">
+          <li>Gestão completa Meta Ads</li>
+          <li>Planejamento estratégico</li>
+          <li>Estruturação de campanhas</li>
+          <li>Otimizações constantes</li>
+          <li>Relatórios estratégicos</li>
+          <li>Estrutura de funis</li>
+          <li>Implementação de funis gamificados</li>
+          <li>Estratégias de retenção e fidelização</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="midia-box">
+          <div class="midia-label">Sugestão de investimento em mídia</div>
+          <div class="midia-val">R$45 a R$60/dia</div>
+          <p>Investimento realizado diretamente na Meta. Separado do honorário de gestão.</p>
+        </div>
+
+        <div style="margin-top:32px;padding:32px;background:rgba(212,82,122,0.05);border:1px solid var(--border);border-radius:2px">
+          <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--pink);margin-bottom:12px">Por que esse modelo funciona</div>
+          <ul class="check-list">
+            <li>Honorário fixo — sem surpresas</li>
+            <li>Gestão ativa, não no automático</li>
+            <li>Foco em resultado, não em volume de posts</li>
+            <li>Estratégia construída para a sua unidade</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ════════════════════════════════════
+     PRÓXIMOS PASSOS
+════════════════════════════════════ -->
+<section class="steps-sec">
+  <div class="container">
+    <div class="tag">Após aprovação</div>
+    <h2 style="font-family:var(--font-d);font-size:clamp(28px,3vw,40px);font-weight:300;margin-bottom:48px">Como <span class="tg">começamos</span></h2>
+
+    <div class="steps-inner">
+      <div class="next-step">
+        <div class="next-num">01</div>
+        <h4>Configuração</h4>
+        <p>Campanhas e estrutura de conta</p>
+      </div>
+      <div class="next-step">
+        <div class="next-num">02</div>
+        <h4>Pixel</h4>
+        <p>Instalação e estruturação do pixel</p>
+      </div>
+      <div class="next-step">
+        <div class="next-num">03</div>
+        <h4>Públicos</h4>
+        <p>Definição estratégica da audiência local</p>
+      </div>
+      <div class="next-step">
+        <div class="next-num">04</div>
+        <h4>Criativos</h4>
+        <p>Planejamento e briefing criativo</p>
+      </div>
+      <div class="next-step">
+        <div class="next-num">05</div>
+        <h4>No ar</h4>
+        <p>Primeiras campanhas em até 7 dias úteis</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CTA
+════════════════════════════════════ -->
+<section class="cta-sec">
+  <div class="container">
+    <h2>Vamos acelerar<br><em>sua unidade WePink?</em></h2>
+    <p>Mais do que anúncios — posicionamento, desejo e crescimento previsível.</p>
+
+    <a href="https://wa.me/5581985981192?text=Ol%C3%A1%20Anderson!%20Li%20a%20proposta%20WePink%20e%20quero%20conversar%20sobre%20a%20parceria." target="_blank" rel="noopener" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Aceitar proposta
+    </a>
+
+    <div class="cta-footer">
+      Anderson Seabra &nbsp;·&nbsp; Estratégia & Tráfego Pago &nbsp;·&nbsp; 2026
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
