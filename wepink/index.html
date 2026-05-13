@@ -101,6 +101,15 @@
     .hero-check { display:flex; align-items:flex-start; gap:8px; font-size:13px; color:rgba(255,255,255,.75); }
     .hero-check::before { content:'✔'; color:var(--pink); font-size:11px; flex-shrink:0; margin-top:3px; }
 
+    .btn-invest {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 500; color: var(--pink);
+      border: 1px solid rgba(212,82,122,.35); padding: 11px 22px;
+      border-radius: 2px; text-decoration: none; margin-bottom: 28px;
+      transition: all .25s; width: fit-content;
+    }
+    .btn-invest:hover { background: rgba(212,82,122,.08); border-color: var(--pink); }
+
     .hero-footer {
       font-size: 11px; color: rgba(255,255,255,.25); letter-spacing: .06em;
       border-top: 1px solid rgba(212,82,122,.15); padding-top: 20px;
@@ -311,6 +320,7 @@
       <div class="hero-check">Escala previsível</div>
       <div class="hero-check">Estratégias americanas</div>
     </div>
+    <a href="#investimento" class="btn-invest">Ver investimento →</a>
     <div class="hero-footer">Anderson Seabra &nbsp;·&nbsp; Proposta Confidencial &nbsp;·&nbsp; 2026</div>
   </div>
 </section>
@@ -396,7 +406,7 @@
 <hr class="div">
 
 <!-- INVESTIMENTO -->
-<section class="invest-sec">
+<section class="invest-sec" id="investimento">
   <div class="container">
     <div class="tag">Investimento</div>
     <h2 style="font-family:var(--font-d);font-size:clamp(30px,3.5vw,44px);font-weight:300;line-height:1.2">
